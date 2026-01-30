@@ -1,37 +1,39 @@
-/* --- CẤU HÌNH MÀU SẮC ĐƠN GIẢN --- */
+/* =========================================
+   1. CẤU HÌNH MÀU SẮC (THEME VARIABLES)
+   ========================================= */
 :root {
-  /* Giao diện Sáng (Mặc định) */
+  /* Giao diện Sáng (Light Mode) */
   --bg: #f9f9f9;
-  /* Nền xám rất nhạt, đỡ chói hơn màu trắng tinh */
+  /* Nền trang */
   --card-bg: #ffffff;
-  /* Card màu trắng */
+  /* Nền card và Navbar */
   --text: #333333;
-  /* Chữ xám đen dễ đọc */
+  /* Chữ chính */
   --text-sub: #666666;
   /* Chữ phụ */
-  --accent: #2c3e50;
-  /* Màu điểm nhấn (Xanh đen cổ điển) */
+  --accent: #d9534f;
+  /* Màu đỏ chủ đạo (Logo & Hover) */
   --border: #e0e0e0;
   /* Viền nhạt */
-  --shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
-  /* Bóng mờ rất nhẹ */
+  --shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  /* Bóng đổ nhẹ */
 }
 
-/* Giao diện Tối (Dark Mode - Xám dịu) */
+/* Giao diện Tối (Dark Mode) */
 body.dark-mode {
-  --bg: #1a1a1a;
-  /* Nền tối vừa phải */
-  --card-bg: #242424;
-  /* Card sáng hơn nền một chút */
-  --text: #eaeaea;
-  /* Chữ trắng đục */
-  --text-sub: #aaaaaa;
-  --accent: #4a90e2;
-  /* Màu nhấn sáng hơn để nổi trên nền tối */
+  --bg: #121212;
+  --card-bg: #1e1e1e;
+  --text: #e0e0e0;
+  --text-sub: #a0a0a0;
+  --accent: #ff6b6b;
+  /* Màu đỏ sáng hơn cho nền tối */
   --border: #333333;
-  --shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+  --shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
 }
 
+/* =========================================
+   2. RESET & BASE STYLES
+   ========================================= */
 * {
   margin: 0;
   padding: 0;
@@ -39,165 +41,231 @@ body.dark-mode {
 }
 
 body {
-  font-family: 'Segoe UI', sans-serif;
-  /* Font mặc định của máy, nhìn rất tự nhiên */
+  font-family: 'Poppins', 'Segoe UI', sans-serif;
   background-color: var(--bg);
   color: var(--text);
   font-size: 15px;
   line-height: 1.6;
-  transition: 0.3s;
-  /* Hiệu ứng chuyển màu nhẹ khi đổi theme */
+  transition: background-color 0.3s, color 0.3s;
+  /* Thêm padding-top để nội dung không bị Navbar (fixed-top) che mất */
+  padding-top: 80px;
 }
 
 a {
-  text-decoration: none;
+  text-decoration: none !important;
+  /* Bỏ gạch chân mặc định của Bootstrap */
   color: inherit;
 }
 
 ul {
   list-style: none;
+  padding-left: 0;
+  margin-bottom: 0;
 }
 
-/* --- HEADER --- */
-header {
-  background-color: var(--card-bg);
+/* =========================================
+   3. NAVBAR (HEADER) - CHỈNH SỬA THEO ẢNH
+   ========================================= */
+.navbar {
+  background-color: var(--card-bg) !important;
   border-bottom: 1px solid var(--border);
-  padding: 15px 40px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  position: sticky;
-  top: 0;
-  z-index: 100;
   box-shadow: var(--shadow);
+  padding: 10px 0;
+  transition: background-color 0.3s;
 }
 
-.logo {
-  font-weight: bold;
-  font-size: 1.2rem;
-  color: var(--accent);
+/* Logo "Tien Thuong" */
+.navbar-brand {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 700;
+  font-size: 1.5rem;
+  color: var(--accent) !important;
+  /* Màu đỏ */
+  letter-spacing: 0.5px;
 }
 
-.nav-links {
-  display: flex;
-  gap: 20px;
-}
-
-.nav-links a {
-  color: var(--text-sub);
+/* Link Menu (Home, University...) */
+.navbar-nav .nav-link {
+  color: var(--text) !important;
   font-weight: 500;
+  font-size: 1rem;
+  margin-left: 15px;
+  transition: color 0.2s;
 }
 
-.nav-links a:hover {
-  color: var(--accent);
+.navbar-nav .nav-link:hover {
+  color: var(--accent) !important;
 }
 
-/* Nút đổi theme đơn giản */
+/* Nút đổi Theme hình tròn */
 #theme-toggle {
-  cursor: pointer;
-  padding: 8px;
-  font-size: 1.2rem;
+  background: transparent;
+  border: 1px solid var(--text-sub);
   color: var(--text);
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  /* Bo tròn hoàn toàn */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 1.1rem;
+  outline: none;
 }
 
-/* --- MAIN CONTENT --- */
+#theme-toggle:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+  transform: rotate(15deg);
+  /* Hiệu ứng xoay nhẹ khi hover */
+}
+
+/* Mobile Toggle Button (Icon 3 gạch) */
+.navbar-toggler {
+  border: none;
+  outline: none !important;
+}
+
+.navbar-toggler i {
+  color: var(--text);
+  font-size: 1.5rem;
+}
+
+/* =========================================
+   4. MAIN CONTENT & TITLES
+   ========================================= */
 main {
   text-align: center;
-  padding: 40px 20px;
+  padding: 40px 20px 20px;
 }
 
 main h1 {
-  font-size: 1.8rem;
+  font-size: 2rem;
+  font-weight: 700;
   margin-bottom: 10px;
   color: var(--text);
 }
 
 h2 {
-  margin: 30px 40px 15px;
-  font-size: 1.3rem;
+  margin: 40px 40px 20px;
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: var(--accent);
   border-bottom: 2px solid var(--border);
-  /* Gạch chân tiêu đề */
   padding-bottom: 5px;
   display: inline-block;
-  color: var(--accent);
 }
 
-/* --- LƯỚI SẢN PHẨM (Grid tự động) --- */
+/* =========================================
+   5. PROJECT GRID (LƯỚI MÔN HỌC)
+   ========================================= */
 .project-grid {
   display: grid;
-  /* Tự động chia cột: Card nhỏ nhất 250px, còn lại tự giãn */
-  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-  gap: 20px;
+  /* Grid tự động responsive: Card nhỏ nhất 260px */
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 25px;
   padding: 0 40px 40px;
+  max-width: 1400px;
+  /* Giới hạn chiều rộng trên màn hình lớn */
+  margin: 0 auto;
 }
 
-/* --- CARD (Thẻ bài) --- */
+/* =========================================
+   6. CARD STYLE
+   ========================================= */
 .project-card {
   background: var(--card-bg);
   border: 1px solid var(--border);
-  border-radius: 8px;
-  /* Bo góc nhẹ */
+  border-radius: 12px;
   overflow: hidden;
-  transition: transform 0.2s;
-  /* Hiệu ứng nhún nhẹ khi di chuột */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  /* Để nội dung giãn đều */
 }
 
 .project-card:hover {
-  transform: translateY(-3px);
-  /* Nhấc lên 1 chút thôi */
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08);
   border-color: var(--accent);
 }
 
 .project-image {
-  height: 140px;
-  background: #eee;
-  /* Màu nền giữ chỗ nếu ảnh lỗi */
+  height: 150px;
+  background: #f0f0f0;
   display: flex;
   align-items: center;
   justify-content: center;
   overflow: hidden;
+  border-bottom: 1px solid var(--border);
 }
 
 .project-image img {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  transition: transform 0.5s;
+}
+
+.project-card:hover .project-image img {
+  transform: scale(1.05);
+  /* Zoom ảnh nhẹ khi hover */
 }
 
 .project-content {
-  padding: 15px;
+  padding: 20px;
   text-align: left;
+  flex-grow: 1;
+  /* Đẩy nút xuống dưới cùng */
+  display: flex;
+  flex-direction: column;
 }
 
 .project-content p strong {
   display: block;
-  font-size: 1.1rem;
-  margin-bottom: 8px;
-  color: var(--accent);
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+  color: var(--text);
+  /* Tiêu đề môn học màu đậm */
 }
 
 .project-content ul {
-  font-size: 0.9rem;
+  font-size: 0.95rem;
   color: var(--text-sub);
-  margin-bottom: 15px;
+  margin-bottom: 20px;
+  flex-grow: 1;
 }
 
 .project-content li {
-  margin-bottom: 5px;
+  margin-bottom: 6px;
+  display: flex;
+  align-items: flex-start;
 }
 
-/* Nút Xem thêm - Đơn giản là cái nút có viền */
+/* Thêm icon chấm tròn nhỏ trước li */
+.project-content li::before {
+  content: "•";
+  color: var(--accent);
+  font-weight: bold;
+  margin-right: 8px;
+}
+
+/* Nút Xem thêm */
 .btn-view {
   display: block;
   text-align: center;
-  padding: 8px 0;
+  padding: 10px 0;
   border: 1px solid var(--border);
-  border-radius: 5px;
+  border-radius: 6px;
   color: var(--text-sub);
+  font-weight: 500;
   font-size: 0.9rem;
-  transition: 0.2s;
-  background: var(--bg);
+  transition: all 0.2s;
+  background: transparent;
+  margin-top: auto;
+  /* Đẩy nút xuống đáy card */
 }
 
 .btn-view:hover {
@@ -206,45 +274,82 @@ h2 {
   border-color: var(--accent);
 }
 
-/* --- FOOTER --- */
+/* =========================================
+   7. FOOTER
+   ========================================= */
 footer {
   text-align: center;
-  padding: 30px;
+  padding: 40px 20px;
   background: var(--card-bg);
   border-top: 1px solid var(--border);
+  margin-top: 40px;
+}
+
+.social-icons {
+  margin-bottom: 15px;
+}
+
+.social-icons .social-link {
+  display: inline-flex;
+  width: 40px;
+  height: 40px;
+  align-items: center;
+  justify-content: center;
+  margin: 0 5px;
+  border-radius: 50%;
+  background: var(--bg);
+  color: var(--text);
+  transition: 0.3s;
+}
+
+.social-icons .social-link:hover {
+  background: var(--accent);
+  color: #fff;
+  transform: translateY(-3px);
+}
+
+.copyright {
   color: var(--text-sub);
   font-size: 0.9rem;
 }
 
-.social-icons {
-  margin-bottom: 10px;
+/* =========================================
+   8. RESPONSIVE (MOBILE)
+   ========================================= */
+@media (max-width: 991px) {
+
+  /* Fix menu xổ xuống trên mobile */
+  .navbar-collapse {
+    background-color: var(--card-bg);
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    padding: 20px;
+    border-bottom: 1px solid var(--border);
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.05);
+  }
+
+  .navbar-nav .nav-link {
+    margin-left: 0;
+    padding: 10px 0 !important;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .nav-item.pl-3 {
+    padding-left: 0 !important;
+    margin-top: 15px;
+  }
 }
 
-.social-icons a {
-  margin: 0 10px;
-  font-size: 1.2rem;
-  color: var(--text);
-}
-
-/* --- MOBILE (Điện thoại) --- */
 @media (max-width: 768px) {
   .project-grid {
-    padding: 0 15px 30px;
+    padding: 0 20px 40px;
+    grid-template-columns: 1fr;
+    /* 1 cột trên điện thoại */
   }
 
-  header {
-    padding: 15px;
+  h2 {
+    margin: 30px 20px 15px;
   }
-
-  .nav-links {
-    display: none;
-  }
-
-  /* Ẩn menu trên mobile cho gọn */
-  .menu-toggle {
-    display: block;
-    font-size: 1.5rem;
-  }
-
-  /* Hiện nút menu */
 }
