@@ -24,10 +24,5 @@ themeToggle.addEventListener("click", () => {
   }
 });
 
-// Logic Menu Mobile
-const menuToggle = document.getElementById("menu-toggle");
-const navbar = document.querySelector("nav");
-
-menuToggle.addEventListener("click", () => {
-  navbar.classList.toggle("active");
-});
+// --- PHẦN DƯỚI ĐÂY ĐÃ BỊ XÓA VÌ BOOTSTRAP ĐÃ TỰ LÀM RỒI ---
+// const menuToggle = document.getElementById("menu-toggle"); ... (Xóa đoạn này đi)
