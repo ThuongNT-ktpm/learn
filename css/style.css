@@ -1,41 +1,35 @@
-/* ==== 1. CẤU HÌNH THEME ==== */
+/* --- CẤU HÌNH MÀU SẮC ĐƠN GIẢN --- */
 :root {
-  /* --- LIGHT MODE (Mặc định) --- */
-  --primary: #111111;
-  /* Chữ đen */
-  --accent: #2563eb;
-  /* Xanh dương điểm nhấn */
-  --bg-body: #f3f4f6;
-  /* Nền xám trắng */
+  /* Giao diện Sáng (Mặc định) */
+  --bg: #f9f9f9;
+  /* Nền xám rất nhạt, đỡ chói hơn màu trắng tinh */
   --card-bg: #ffffff;
-  /* Card trắng */
+  /* Card màu trắng */
+  --text: #333333;
+  /* Chữ xám đen dễ đọc */
   --text-sub: #666666;
   /* Chữ phụ */
-  --border: #e5e7eb;
+  --accent: #2c3e50;
+  /* Màu điểm nhấn (Xanh đen cổ điển) */
+  --border: #e0e0e0;
   /* Viền nhạt */
-  --header-bg: rgba(255, 255, 255, 0.9);
-  --shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
-  --radius: 16px;
-  /* Bo góc */
+  --shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+  /* Bóng mờ rất nhẹ */
 }
 
-/* --- DARK MODE (ĐEN CƠ BẢN - KHÔNG XANH) --- */
+/* Giao diện Tối (Dark Mode - Xám dịu) */
 body.dark-mode {
-  --primary: #ffffff;
-  /* Chữ trắng */
-  --accent: #60a5fa;
-  /* Xanh sáng hơn cho nổi trên nền đen */
-  --bg-body: #111111;
-  /* Nền ĐEN TỐI (Neutral Black) */
-  --card-bg: #1e1e1e;
-  /* Card XÁM ĐEN (Dark Grey) */
-  --text-sub: #a0a0a0;
-  /* Chữ phụ xám sáng */
+  --bg: #1a1a1a;
+  /* Nền tối vừa phải */
+  --card-bg: #242424;
+  /* Card sáng hơn nền một chút */
+  --text: #eaeaea;
+  /* Chữ trắng đục */
+  --text-sub: #aaaaaa;
+  --accent: #4a90e2;
+  /* Màu nhấn sáng hơn để nổi trên nền tối */
   --border: #333333;
-  /* Viền xám tối */
-  --header-bg: rgba(17, 17, 17, 0.9);
-  /* Header đen mờ */
-  --shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+  --shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
 }
 
 * {
@@ -45,323 +39,212 @@ body.dark-mode {
 }
 
 body {
-  font-family: 'Poppins', sans-serif;
-  background-color: var(--bg-body);
-  color: var(--primary);
-  font-size: 13.5px;
+  font-family: 'Segoe UI', sans-serif;
+  /* Font mặc định của máy, nhìn rất tự nhiên */
+  background-color: var(--bg);
+  color: var(--text);
+  font-size: 15px;
   line-height: 1.6;
-  transition: background-color 0.3s, color 0.3s;
+  transition: 0.3s;
+  /* Hiệu ứng chuyển màu nhẹ khi đổi theme */
 }
 
 a {
   text-decoration: none;
   color: inherit;
-  transition: 0.3s;
 }
 
 ul {
   list-style: none;
 }
 
-/* ==== 2. HEADER ==== */
+/* --- HEADER --- */
 header {
-  background: var(--header-bg);
-  backdrop-filter: blur(10px);
-  padding: 12px 40px;
+  background-color: var(--card-bg);
+  border-bottom: 1px solid var(--border);
+  padding: 15px 40px;
   display: flex;
   justify-content: space-between;
   align-items: center;
   position: sticky;
   top: 0;
   z-index: 100;
-  border-bottom: 1px solid var(--border);
-}
-
-.left-nav {
-  display: flex;
-  align-items: center;
-  gap: 40px;
+  box-shadow: var(--shadow);
 }
 
 .logo {
-  font-size: 1.4rem;
-  font-weight: 700;
-  color: var(--primary);
+  font-weight: bold;
+  font-size: 1.2rem;
+  color: var(--accent);
 }
 
-nav ul {
+.nav-links {
   display: flex;
-  gap: 25px;
+  gap: 20px;
 }
 
-nav a.q {
+.nav-links a {
   color: var(--text-sub);
   font-weight: 500;
 }
 
-nav a.q:hover {
+.nav-links a:hover {
   color: var(--accent);
 }
 
-.right-actions {
-  display: flex;
-  align-items: center;
-  gap: 20px;
-}
-
-/* Nút đổi màu */
+/* Nút đổi theme đơn giản */
 #theme-toggle {
-  font-size: 1.2rem;
   cursor: pointer;
-  color: var(--primary);
   padding: 8px;
-  border-radius: 50%;
-  transition: 0.3s;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  font-size: 1.2rem;
+  color: var(--text);
 }
 
-#theme-toggle:hover {
-  background: rgba(125, 125, 125, 0.1);
-}
-
-.menu-toggle {
-  display: none;
-  font-size: 1.5rem;
-  cursor: pointer;
-  color: var(--primary);
-}
-
-/* ==== 3. MAIN ==== */
+/* --- MAIN CONTENT --- */
 main {
   text-align: center;
-  padding: 50px 20px 20px;
+  padding: 40px 20px;
 }
 
 main h1 {
-  font-size: 2rem;
-  color: var(--primary);
-  font-weight: 700;
-  margin-bottom: 5px;
+  font-size: 1.8rem;
+  margin-bottom: 10px;
+  color: var(--text);
 }
 
-main p {
-  color: var(--text-sub);
-  font-size: 1rem;
-}
-
-/* Tiêu đề Kỳ học */
 h2 {
-  margin: 40px 40px 20px;
-  font-size: 1.4rem;
-  color: var(--primary);
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-  border-left: 5px solid var(--accent);
-  padding-left: 15px;
+  margin: 30px 40px 15px;
+  font-size: 1.3rem;
+  border-bottom: 2px solid var(--border);
+  /* Gạch chân tiêu đề */
+  padding-bottom: 5px;
+  display: inline-block;
+  color: var(--accent);
 }
 
-/* ==== 4. LƯỚI 5 CỘT ==== */
+/* --- LƯỚI SẢN PHẨM (Grid tự động) --- */
 .project-grid {
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
+  /* Tự động chia cột: Card nhỏ nhất 250px, còn lại tự giãn */
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
   gap: 20px;
-  padding: 0 40px;
-  margin-bottom: 50px;
+  padding: 0 40px 40px;
 }
 
-/* ==== 5. CARD (ĐEN CƠ BẢN) ==== */
+/* --- CARD (Thẻ bài) --- */
 .project-card {
   background: var(--card-bg);
-  border-radius: var(--radius);
-  overflow: hidden;
-  display: flex;
-  flex-direction: column;
-  transition: all 0.3s ease;
   border: 1px solid var(--border);
+  border-radius: 8px;
+  /* Bo góc nhẹ */
+  overflow: hidden;
+  transition: transform 0.2s;
+  /* Hiệu ứng nhún nhẹ khi di chuột */
 }
 
 .project-card:hover {
-  transform: translateY(-5px);
-  box-shadow: var(--shadow);
+  transform: translateY(-3px);
+  /* Nhấc lên 1 chút thôi */
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
   border-color: var(--accent);
 }
 
 .project-image {
-  height: 130px;
+  height: 140px;
+  background: #eee;
+  /* Màu nền giữ chỗ nếu ảnh lỗi */
+  display: flex;
+  align-items: center;
+  justify-content: center;
   overflow: hidden;
-  position: relative;
-  border-bottom: 1px solid var(--border);
 }
 
 .project-image img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: transform 0.5s;
-}
-
-.project-card:hover .project-image img {
-  transform: scale(1.05);
 }
 
 .project-content {
   padding: 15px;
-  flex: 1;
-  display: flex;
-  flex-direction: column;
   text-align: left;
 }
 
 .project-content p strong {
   display: block;
   font-size: 1.1rem;
-  color: var(--primary);
-  margin-bottom: 10px;
-  font-weight: 700;
+  margin-bottom: 8px;
+  color: var(--accent);
 }
 
 .project-content ul {
-  font-size: 0.85rem;
+  font-size: 0.9rem;
   color: var(--text-sub);
   margin-bottom: 15px;
-  flex: 1;
 }
 
 .project-content li {
-  margin-bottom: 6px;
-  display: flex;
-  gap: 6px;
+  margin-bottom: 5px;
 }
 
-.project-content li strong {
-  color: var(--primary);
-  min-width: 60px;
-  font-weight: 600;
-}
-
+/* Nút Xem thêm - Đơn giản là cái nút có viền */
 .btn-view {
   display: block;
   text-align: center;
-  background: transparent;
-  color: var(--accent);
   padding: 8px 0;
-  border-radius: 8px;
-  font-weight: 600;
-  font-size: 0.9rem;
   border: 1px solid var(--border);
-  transition: 0.3s;
+  border-radius: 5px;
+  color: var(--text-sub);
+  font-size: 0.9rem;
+  transition: 0.2s;
+  background: var(--bg);
 }
 
 .btn-view:hover {
   background: var(--accent);
-  color: white;
+  color: #fff;
   border-color: var(--accent);
 }
 
-/* ==== 6. FOOTER ==== */
+/* --- FOOTER --- */
 footer {
-  background: var(--card-bg);
-  color: var(--text-sub);
   text-align: center;
   padding: 30px;
-  margin-top: 60px;
+  background: var(--card-bg);
   border-top: 1px solid var(--border);
+  color: var(--text-sub);
+  font-size: 0.9rem;
 }
 
-.img-a {
-  margin-top: 15px;
-  display: flex;
-  justify-content: center;
-  gap: 20px;
+.social-icons {
+  margin-bottom: 10px;
 }
 
-/* Icon Footer: Chế độ sáng thì đen mờ, Tối thì trắng */
-.img-a img {
-  opacity: 0.6;
-  transition: 0.3s;
-  filter: grayscale(100%);
+.social-icons a {
+  margin: 0 10px;
+  font-size: 1.2rem;
+  color: var(--text);
 }
 
-body.dark-mode .img-a img {
-  filter: invert(1);
-  opacity: 0.7;
-}
-
-.img-a img:hover {
-  opacity: 1;
-  transform: scale(1.1);
-  filter: none;
-}
-
-body.dark-mode .img-a img:hover {
-  filter: invert(1);
-  opacity: 1;
-}
-
-/* ==== RESPONSIVE ==== */
-@media (max-width: 1400px) {
-  .project-grid {
-    grid-template-columns: repeat(4, 1fr);
-  }
-}
-
-@media (max-width: 1100px) {
-  .project-grid {
-    grid-template-columns: repeat(3, 1fr);
-  }
-}
-
+/* --- MOBILE (Điện thoại) --- */
 @media (max-width: 768px) {
   .project-grid {
-    grid-template-columns: repeat(2, 1fr);
-    padding: 0 20px;
+    padding: 0 15px 30px;
   }
 
   header {
-    padding: 15px 20px;
+    padding: 15px;
   }
 
-  .left-nav nav {
+  .nav-links {
     display: none;
-    position: absolute;
-    top: 100%;
-    left: 0;
-    width: 100%;
-    background: var(--card-bg);
-    padding: 20px;
-    border-bottom: 1px solid var(--border);
   }
 
-  .left-nav nav.active {
-    display: block;
-  }
-
-  nav ul {
-    flex-direction: column;
-  }
-
+  /* Ẩn menu trên mobile cho gọn */
   .menu-toggle {
     display: block;
+    font-size: 1.5rem;
   }
 
-  .left-nav {
-    gap: 0;
-    width: 100%;
-    justify-content: space-between;
-  }
-
-  .right-actions {
-    position: absolute;
-    right: 50px;
-    top: 12px;
-  }
-}
-
-@media (max-width: 480px) {
-  .project-grid {
-    grid-template-columns: 1fr;
-  }
+  /* Hiện nút menu */
 }

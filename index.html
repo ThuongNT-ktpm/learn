@@ -1,11 +1,67 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="vi">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Tien Thuong Portfolio</title>
+    <title>Tien Thuong - University</title>
+    <link rel="icon" href="/images/favicon.ico" type="image/x-icon" />
+
     <link
-      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    />
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Russo+One&family=Varela+Round&family=Roboto:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <meta
+      name="description"
+      content="Portfolio của Nguyễn Tiến Thương - Sinh viên Software Engineering chuyên Backend, Java và Web Development. Chia sẻ dự án và tài liệu học tập CNTT."
+    />
+
+    <meta
+      name="keywords"
+      content="Nguyễn Tiến Thương, Thuong-Dev, Software Engineering, Java, Spring Boot, Portfolio sinh viên CNTT"
+    />
+
+    <meta name="author" content="Nguyễn Tiến Thương" />
+
+    <link rel="canonical" href="https://thuongnt-ktpm.github.io/" />
+    <meta
+      property="og:title"
+      content="Thuong-Dev — Software Engineering Portfolio"
+    />
+    <meta
+      property="og:description"
+      content="Khám phá các dự án lập trình và kho tài liệu học tập của Tiến Thương."
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="images/apple-touch-icon.png"
+    />
+
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="images/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="images/png"
+      sizes="16x16"
+      href="image/favicon-16x16.png"
+    />
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
       rel="stylesheet"
     />
     <link
@@ -17,36 +73,29 @@
   </head>
   <body>
     <header>
-      <div class="left-nav">
-        <a href="https://thuongnt-ktpm.github.io/Portfolio/" class="logo"
-          >Tien Thuong</a
-        >
-        <nav id="navbar">
-          <ul>
-            <li>
-              <a class="q" href="https://thuongnt-ktpm.github.io/Portfolio/"
-                >Home</a
-              >
-            </li>
-            <li><a class="q" href="#">My Blog</a></li>
-            <li><a class="q" href="#">Null</a></li>
-          </ul>
-        </nav>
-      </div>
+      <a href="https://thuongnt-ktpm.github.io/portfoliothuong/" class="logo"
+        >Tien Thuong</a
+      >
 
-      <div class="right-actions">
-        <div id="theme-toggle" title="Chế độ Sáng/Tối">
+      <nav class="nav-links">
+        <a href="https://thuongnt-ktpm.github.io/portfoliothuong/">Home</a>
+        <a href="https://thuongnt-ktpm.github.io/learn/">University</a>
+        <a href="#">Coursera</a>
+      </nav>
+
+      <div style="display: flex; gap: 15px; align-items: center">
+        <div id="theme-toggle" title="Đổi giao diện">
           <i class="fas fa-moon"></i>
         </div>
 
-        <div class="menu-toggle" id="menu-toggle">
+        <div class="menu-toggle" style="display: none">
           <i class="fas fa-bars"></i>
         </div>
       </div>
     </header>
 
     <main>
-      <h1>Welcome, A place to share university experiences</h1>
+      <h1>Các môn mình đã học ở đại học</h1>
     </main>
 
     <h2>Kỳ I</h2>
@@ -58,8 +107,10 @@
         <div class="project-content">
           <p><strong>SSLc</strong></p>
           <ul>
-            <li><strong>Subject:</strong> Academic skills</li>
-            <li><strong>Content:</strong> Tỉ lệ trúng 90%</li>
+            <li>
+              <strong>Subject:</strong> Academic skills for University success
+            </li>
+            <li><strong>Content:</strong> Môn lý thuyết</li>
             <li><strong>Source:</strong> Đề thi kì trước</li>
           </ul>
           <a
@@ -77,8 +128,10 @@
         <div class="project-content">
           <p><strong>CEA201</strong></p>
           <ul>
-            <li><strong>Subject:</strong> Computer Org & Arch</li>
-            <li><strong>Content:</strong> Tỉ lệ trúng 80%</li>
+            <li>
+              <strong>Subject:</strong> Computer Organization and Architecture
+            </li>
+            <li><strong>Content:</strong>Môn lý thuyết</li>
             <li><strong>Source:</strong> quizlet</li>
           </ul>
           <a
@@ -96,8 +149,8 @@
         <div class="project-content">
           <p><strong>CSI106</strong></p>
           <ul>
-            <li><strong>Subject:</strong> Intro Computer Science</li>
-            <li><strong>Content:</strong> Tỉ lệ trúng 90%</li>
+            <li><strong>Subject:</strong>Introduction to Computer Science</li>
+            <li><strong>Content:</strong>Môn lý thuyết</li>
             <li><strong>Source:</strong> quizlet</li>
           </ul>
           <a
@@ -115,8 +168,8 @@
         <div class="project-content">
           <p><strong>PRF192</strong></p>
           <ul>
-            <li><strong>Subject:</strong> C Programming</li>
-            <li><strong>Content:</strong> Trúng 90% FE</li>
+            <li><strong>Subject:</strong> Programming Fundamentals</li>
+            <li><strong>Content:</strong>Cẩn thận PE</li>
             <li><strong>Source:</strong> PE copy & quizlet</li>
           </ul>
           <a
@@ -134,7 +187,7 @@
         <div class="project-content">
           <p><strong>MAE101</strong></p>
           <ul>
-            <li><strong>Subject:</strong> Math Engineering</li>
+            <li><strong>Subject:</strong>Mathematics for Engineering</li>
             <li><strong>Content:</strong> Video record</li>
             <li><strong>Source:</strong> Đề thi kì trước</li>
           </ul>
@@ -157,7 +210,7 @@
           <p><strong>OSG202</strong></p>
           <ul>
             <li><strong>Subject:</strong> Operating System</li>
-            <li><strong>Content:</strong> Tỉ lệ trúng 80%</li>
+            <li><strong>Content:</strong> Môn lý thuyết</li>
             <li><strong>Source:</strong> quizlet</li>
           </ul>
           <a
@@ -176,7 +229,7 @@
           <p><strong>NWC204</strong></p>
           <ul>
             <li><strong>Subject:</strong> Computer Networking</li>
-            <li><strong>Content:</strong> Trúng 100%</li>
+            <li><strong>Content:</strong> Môn lý thuyết</li>
             <li><strong>Source:</strong> IT Exam Answers</li>
           </ul>
           <a
@@ -214,7 +267,7 @@
           <p><strong>WED201</strong></p>
           <ul>
             <li><strong>Subject:</strong> Web design</li>
-            <li><strong>Content:</strong> Tỉ lệ trúng 80%</li>
+            <li><strong>Content:</strong>Luyện nhiều là HDPE luôn</li>
             <li><strong>Source:</strong> Đề PE & FE</li>
           </ul>
           <a
@@ -232,7 +285,7 @@
         <div class="project-content">
           <p><strong>MAD101</strong></p>
           <ul>
-            <li><strong>Subject:</strong> Discrete math</li>
+            <li><strong>Subject:</strong>Discrete mathematics</li>
             <li><strong>Content:</strong> Video record</li>
             <li><strong>Source:</strong> Đề thi kì trước</li>
           </ul>
@@ -254,7 +307,7 @@
         <div class="project-content">
           <p><strong>MAS291</strong></p>
           <ul>
-            <li><strong>Subject:</strong> Statistics</li>
+            <li><strong>Subject:</strong> Statistics & Probability</li>
             <li><strong>Content:</strong> Video khóa học</li>
             <li><strong>Source:</strong> Giải đề bấm máy</li>
           </ul>
@@ -272,7 +325,7 @@
         <div class="project-content">
           <p><strong>CSD201</strong></p>
           <ul>
-            <li><strong>Subject:</strong> Data Struct & Algo</li>
+            <li><strong>Subject:</strong>Data Structures and Algorithm</li>
             <li><strong>Content:</strong> Đề PE và FE</li>
             <li><strong>Source:</strong> Lớp Thầy Khanh</li>
           </ul>
@@ -308,7 +361,7 @@
         <div class="project-content">
           <p><strong>Lab211</strong></p>
           <ul>
-            <li><strong>Subject:</strong> OOP Java Lab</li>
+            <li><strong>Subject:</strong>OOP with Java Lab</li>
             <li><strong>Content:</strong> Lớp Cô NgaCH</li>
             <li><strong>Source:</strong> Các bài lab</li>
           </ul>
@@ -326,7 +379,7 @@
         <div class="project-content">
           <p><strong>JPD113</strong></p>
           <ul>
-            <li><strong>Subject:</strong> Japanese A1.1</li>
+            <li><strong>Subject:</strong> Elementary Japanese 1- A1.1</li>
             <li><strong>Content:</strong> Tài liệu học</li>
             <li><strong>Source:</strong> Bài thi nói</li>
           </ul>
@@ -348,9 +401,9 @@
         <div class="project-content">
           <p><strong>IOT102</strong></p>
           <ul>
-            <li><strong>Subject:</strong> IoT</li>
-            <li><strong>Content:</strong> Null</li>
-            <li><strong>Source:</strong> Null</li>
+            <li><strong>Subject:</strong>Internet of Things</li>
+            <li><strong>Content:</strong> Làm project</li>
+            <li><strong>Source:</strong> Hệ thống chống trộm Smart</li>
           </ul>
           <a
             href="https://drive.google.com/drive/folders/1zh6K_ciGJqZ_nPWH_XFWp7DuLmwJeczH"
@@ -402,9 +455,12 @@
         <div class="project-content">
           <p><strong>SSG104</strong></p>
           <ul>
-            <li><strong>Subject:</strong> Comm Skills</li>
-            <li><strong>Content:</strong> Null</li>
-            <li><strong>Source:</strong> Null</li>
+            <li>
+              <strong>Subject:</strong> Communication and In-Group Working
+              Skills
+            </li>
+            <li><strong>Content:</strong> Môn từ thiện</li>
+            <li><strong>Source:</strong> nội dung thuyết trình</li>
           </ul>
           <a
             href="https://drive.google.com/drive/folders/1r8gGCmjhQrtxg0LfR8_aS9VR8wPFUpmw"
@@ -420,9 +476,11 @@
         <div class="project-content">
           <p><strong>SWE202c</strong></p>
           <ul>
-            <li><strong>Subject:</strong> Intro SE</li>
-            <li><strong>Content:</strong> Null</li>
-            <li><strong>Source:</strong> Null</li>
+            <li>
+              <strong>Subject:</strong> Introduction to Software Engineering
+            </li>
+            <li><strong>Content:</strong>Thi viết tiếng anh</li>
+            <li><strong>Source:</strong>đề luyện MVC</li>
           </ul>
           <a
             href="https://drive.google.com/drive/folders/1K2zzRnV_T50LEucRAUxakybn7jKDFnNB"
@@ -433,22 +491,26 @@
       </div>
     </section>
 
-    <footer>
-      <p>Copyright &copy; 2025 by Nguyen Tien Thuong</p>
-      <div class="img-a">
-        <a href="https://www.facebook.com/tien.thuong.674774" target="_blank">
-          <img
-            src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/facebook/facebook-original.svg"
-            width="25"
-          />
-        </a>
-        <a href="https://github.com/ThuongNT-ktpm" target="_blank">
-          <img
-            src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/github/github-original.svg"
-            width="25"
-          />
-        </a>
+    <footer id="end">
+      <div class="social-icons">
+        <a
+          href="https://www.facebook.com/tien.thuong.674774"
+          class="social-link"
+          ><i class="fab fa-facebook-f"></i
+        ></a>
+        <a href="https://github.com/ThuongNT-ktpm" class="social-link"
+          ><i class="fab fa-github"></i
+        ></a>
+        <a
+          href="https://mail.google.com/mail/u/0/?tab=rm&ogbl#inbox"
+          class="social-link"
+          ><i class="fas fa-envelope"></i
+        ></a>
+        <a href="https://www.tiktok.com/@tin.thng49" class="social-link"
+          ><i class="fab fa-tiktok"></i
+        ></a>
       </div>
+      <p class="copyright">© 2025 Nguyen Tien Thuong. Built with passion.</p>
     </footer>
 
     <script src="js/hihi.js"></script>
