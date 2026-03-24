@@ -1,38 +1,31 @@
 /* =========================================
-   1. CẤU HÌNH MÀU SẮC (THEME VARIABLES)
+   1. COLOR VARIABLES & THEME
    ========================================= */
 :root {
-  /* Giao diện Sáng (Light Mode) */
-  --bg: #f9f9f9;
-  /* Nền trang */
-  --card-bg: #ffffff;
-  /* Nền card và Navbar */
-  --text: #333333;
-  /* Chữ chính */
-  --text-sub: #666666;
-  /* Chữ phụ */
-  --accent: #d9534f;
-  /* Màu đỏ chủ đạo (Logo & Hover) */
-  --border: #e0e0e0;
-  /* Viền nhạt */
-  --shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-  /* Bóng đổ nhẹ */
+  /* MÀU SÁNG - THIẾT KẾ iOS/NOTION CAO CẤP */
+  --bg: #f2f2f7; /* iOS background */
+  --list-bg: #ffffff;
+  --text: #000000;
+  --text-sub: #8a8a8e;
+  --border: rgba(60, 60, 67, 0.12);
+  --accent: #007aff;
+  --nav-bg: rgba(242, 242, 247, 0.85);
+  --blur: blur(20px);
 }
 
-/* Giao diện Tối (Dark Mode) */
 body.dark-mode {
-  --bg: #121212;
-  --card-bg: #1e1e1e;
-  --text: #e0e0e0;
-  --text-sub: #a0a0a0;
-  --accent: #ff6b6b;
-  /* Màu đỏ sáng hơn cho nền tối */
-  --border: #333333;
-  --shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  /* MÀU TỐI - THIẾT KẾ iOS CAO CẤP */
+  --bg: #000000;
+  --list-bg: #1c1c1e;
+  --text: #ffffff;
+  --text-sub: #98989d;
+  --border: rgba(84, 84, 88, 0.65);
+  --accent: #0a84ff;
+  --nav-bg: rgba(0, 0, 0, 0.85);
 }
 
 /* =========================================
-   2. RESET & BASE STYLES
+   2. RESET & BASE
    ========================================= */
 * {
   margin: 0;
@@ -41,248 +34,333 @@ body.dark-mode {
 }
 
 body {
-  font-family: 'Poppins', 'Segoe UI', sans-serif;
+  font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
   background-color: var(--bg);
   color: var(--text);
-  font-size: 15px;
-  line-height: 1.6;
-  transition: background-color 0.3s, color 0.3s;
-  /* Thêm padding-top để nội dung không bị Navbar (fixed-top) che mất */
-  padding-top: 80px;
+  font-size: 16px;
+  line-height: 1.5;
+  transition: background-color 0.4s ease, color 0.4s ease;
+  padding-top: 70px; 
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4, h5, h6, .hero-title, .empty-state h3, .course-info h3 {
+  font-family: 'Outfit', -apple-system, BlinkMacSystemFont, sans-serif;
+  letter-spacing: -0.3px;
 }
 
 a {
   text-decoration: none !important;
-  /* Bỏ gạch chân mặc định của Bootstrap */
   color: inherit;
-}
-
-ul {
-  list-style: none;
-  padding-left: 0;
-  margin-bottom: 0;
+  -webkit-tap-highlight-color: transparent;
 }
 
 /* =========================================
-   3. NAVBAR (HEADER) - CHỈNH SỬA THEO ẢNH
+   3. NAVBAR (Minimal App Style)
    ========================================= */
 .navbar {
-  background-color: var(--card-bg) !important;
-  border-bottom: 1px solid var(--border);
-  box-shadow: var(--shadow);
-  padding: 10px 0;
-  transition: background-color 0.3s;
+  background-color: var(--nav-bg) !important;
+  backdrop-filter: var(--blur);
+  -webkit-backdrop-filter: var(--blur);
+  border-bottom: 0.5px solid var(--border);
+  padding: 12px 0;
+  transition: all 0.4s ease;
 }
 
-/* Logo "Tien Thuong" */
 .navbar-brand {
-  font-family: 'Poppins', sans-serif;
-  font-weight: 700;
-  font-size: 1.5rem;
-  color: var(--accent) !important;
-  /* Màu đỏ */
-  letter-spacing: 0.5px;
+  font-family: 'Outfit', sans-serif;
+  font-weight: 800;
+  font-size: 1.4rem;
+  color: var(--text) !important;
+  letter-spacing: -0.5px;
 }
 
-/* Link Menu (Home, University...) */
 .navbar-nav .nav-link {
-  color: var(--text) !important;
-  font-weight: 500;
-  font-size: 1rem;
-  margin-left: 15px;
+  color: var(--text-sub) !important;
+  font-weight: 600;
+  font-size: 0.95rem;
+  margin-left: 20px;
+  border-radius: 8px;
   transition: color 0.2s;
 }
 
-.navbar-nav .nav-link:hover {
-  color: var(--accent) !important;
+.navbar-nav .nav-link.active, .navbar-nav .nav-link:hover {
+  color: var(--text) !important;
 }
 
-/* Nút đổi Theme hình tròn */
+/* Theme Toggle Button */
 #theme-toggle {
   background: transparent;
-  border: 1px solid var(--text-sub);
+  border: none;
   color: var(--text);
   width: 40px;
   height: 40px;
-  border-radius: 50%;
-  /* Bo tròn hoàn toàn */
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  transition: all 0.3s ease;
-  font-size: 1.1rem;
+  font-size: 1.3rem;
   outline: none;
 }
 
-#theme-toggle:hover {
-  border-color: var(--accent);
-  color: var(--accent);
-  transform: rotate(15deg);
-  /* Hiệu ứng xoay nhẹ khi hover */
-}
-
-/* Mobile Toggle Button (Icon 3 gạch) */
 .navbar-toggler {
   border: none;
-  outline: none !important;
-}
-
-.navbar-toggler i {
+  background: transparent;
   color: var(--text);
-  font-size: 1.5rem;
-}
-
-/* =========================================
-   4. MAIN CONTENT & TITLES
-   ========================================= */
-main {
-  text-align: center;
-  padding: 40px 20px 20px;
-}
-
-main h1 {
-  font-size: 2rem;
-  font-weight: 700;
-  margin-bottom: 10px;
-  color: var(--text);
-}
-
-h2 {
-  margin: 40px 40px 20px;
   font-size: 1.4rem;
-  font-weight: 600;
-  color: var(--accent);
-  border-bottom: 2px solid var(--border);
-  padding-bottom: 5px;
-  display: inline-block;
+  padding: 0 10px;
+  outline: none;
 }
 
 /* =========================================
-   5. PROJECT GRID (LƯỚI MÔN HỌC)
+   4. HERO SECTION
    ========================================= */
-.project-grid {
-  display: grid;
-  /* Grid tự động responsive: Card nhỏ nhất 260px */
-  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-  gap: 25px;
-  padding: 0 40px 40px;
-  max-width: 1400px;
-  /* Giới hạn chiều rộng trên màn hình lớn */
+.hero-section {
+  padding: 50px 20px 30px;
+  text-align: center;
+  max-width: 800px;
   margin: 0 auto;
 }
 
+.hero-title {
+  font-size: 2.8rem;
+  font-weight: 800;
+  letter-spacing: -1.2px;
+  margin-bottom: 15px;
+  color: var(--text);
+}
+
+.hero-subtitle {
+  font-size: 1.1rem;
+  color: var(--text-sub);
+  line-height: 1.6;
+}
+
 /* =========================================
-   6. CARD STYLE
+   5. STICKY TABS NAVIGATION
    ========================================= */
-.project-card {
-  background: var(--card-bg);
-  border: 1px solid var(--border);
-  border-radius: 12px;
-  overflow: hidden;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+.semester-tabs-container {
+  position: sticky;
+  top: 70px;
+  z-index: 900;
+  background: var(--bg); /* To cover scrolled content behind */
+  padding: 15px 0;
+  margin-bottom: 20px;
   display: flex;
-  flex-direction: column;
-  /* Để nội dung giãn đều */
+  justify-content: center;
+  border-bottom: 0.5px solid var(--border);
 }
 
-.project-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08);
-  border-color: var(--accent);
+/* Ẩn thanh cuộn nhưng cho phép cuộn ngang gọn gàng trên mobile */
+.semester-tabs {
+  display: flex;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  padding: 4px;
+  background: var(--list-bg);
+  border-radius: 14px;
+  border: 0.5px solid var(--border);
+  box-shadow: 0 2px 10px rgba(0,0,0,0.02);
+  max-width: 100%;
 }
 
-.project-image {
-  height: 150px;
-  background: #f0f0f0;
+.semester-tabs::-webkit-scrollbar {
+  display: none;
+}
+
+.semester-tabs .nav-link {
+  border-radius: 10px;
+  padding: 8px 16px;
+  color: var(--text-sub);
+  font-weight: 600;
+  font-size: 0.95rem;
+  white-space: nowrap;
+  transition: all 0.2s;
+}
+
+.semester-tabs .nav-link:hover {
+  color: var(--text);
+}
+
+.semester-tabs .nav-link.active {
+  background: var(--text);
+  color: var(--bg);
+  box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+}
+
+body.dark-mode .semester-tabs .nav-link.active {
+  background: #ffffff;
+  color: #000000;
+}
+
+/* =========================================
+   6. PREMIUM iOS-STYLE LIST VIEW
+   ========================================= */
+.tab-content {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 0 15px 50px;
+  animation: fadeInList 0.4s ease forwards;
+}
+
+@keyframes fadeInList {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.course-list {
+  background: var(--list-bg);
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 2px 20px rgba(0,0,0,0.03);
+}
+
+.course-item {
+  display: flex;
+  align-items: center;
+  padding: 16px 20px;
+  border-bottom: 0.5px solid var(--border);
+  transition: background 0.2s;
+}
+
+.course-item:last-child {
+  border-bottom: none;
+}
+
+.course-item:hover {
+  background: rgba(0,0,0,0.03);
+}
+
+body.dark-mode .course-item:hover {
+  background: rgba(255,255,255,0.05);
+}
+
+.course-item:active {
+  background: rgba(0,0,0,0.05); /* Tap highlight */
+}
+
+/* Icon / Graphic Left */
+.course-icon {
+  width: 50px;
+  height: 50px;
+  border-radius: 14px;
   display: flex;
   align-items: center;
   justify-content: center;
-  overflow: hidden;
-  border-bottom: 1px solid var(--border);
+  font-size: 1.5rem;
+  color: #fff;
+  flex-shrink: 0;
+  margin-right: 16px;
+  box-shadow: inset 0 0 0 1px rgba(0,0,0,0.1);
 }
 
-.project-image img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transition: transform 0.5s;
-}
+/* Vibrant App Gradients */
+.bg-gradient-1 { background: linear-gradient(135deg, #FF2A85, #FF8A00); }
+.bg-gradient-2 { background: linear-gradient(135deg, #00C6FF, #0072FF); }
+.bg-gradient-3 { background: linear-gradient(135deg, #11998E, #38EF7D); }
+.bg-gradient-4 { background: linear-gradient(135deg, #8E2DE2, #4A00E0); }
+.bg-gradient-5 { background: linear-gradient(135deg, #f12711, #f5af19); }
+.bg-gradient-6 { background: linear-gradient(135deg, #F00000, #DC281E); }
 
-.project-card:hover .project-image img {
-  transform: scale(1.05);
-  /* Zoom ảnh nhẹ khi hover */
-}
-
-.project-content {
-  padding: 20px;
-  text-align: left;
+/* Center Text Content */
+.course-info {
   flex-grow: 1;
-  /* Đẩy nút xuống dưới cùng */
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  overflow: hidden;
 }
 
-.project-content p strong {
-  display: block;
-  font-size: 1.2rem;
-  margin-bottom: 10px;
+.course-info h3 {
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin: 0 0 2px 0;
   color: var(--text);
-  /* Tiêu đề môn học màu đậm */
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
-.project-content ul {
+.course-info p {
   font-size: 0.95rem;
   color: var(--text-sub);
-  margin-bottom: 20px;
-  flex-grow: 1;
+  margin: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
-.project-content li {
-  margin-bottom: 6px;
+/* Badges / Tags */
+.tags {
+  margin-top: 6px;
   display: flex;
-  align-items: flex-start;
+  gap: 8px;
+  flex-wrap: wrap;
 }
 
-/* Thêm icon chấm tròn nhỏ trước li */
-.project-content li::before {
-  content: "•";
-  color: var(--accent);
-  font-weight: bold;
-  margin-right: 8px;
-}
-
-/* Nút Xem thêm */
-.btn-view {
-  display: block;
-  text-align: center;
-  padding: 10px 0;
-  border: 1px solid var(--border);
-  border-radius: 6px;
+.badge-tag {
+  display: inline-block;
+  font-size: 0.75rem;
+  font-weight: 600;
+  background: rgba(138, 138, 142, 0.15);
   color: var(--text-sub);
-  font-weight: 500;
-  font-size: 0.9rem;
-  transition: all 0.2s;
-  background: transparent;
-  margin-top: auto;
-  /* Đẩy nút xuống đáy card */
+  padding: 3px 8px;
+  border-radius: 6px;
 }
 
-.btn-view:hover {
-  background: var(--accent);
-  color: #fff;
-  border-color: var(--accent);
+.highlight-alert { color: #ff3b30; background: rgba(255, 59, 48, 0.1); }
+.highlight-success { color: #34c759; background: rgba(52, 199, 89, 0.1); }
+body.dark-mode .highlight-alert { color: #ff453a; }
+body.dark-mode .highlight-success { color: #32d74b; }
+
+/* Right Chevron */
+.course-action {
+  color: rgba(60, 60, 67, 0.3);
+  font-size: 1.1rem;
+  margin-left: 10px;
+}
+
+body.dark-mode .course-action {
+  color: rgba(235, 235, 245, 0.3);
 }
 
 /* =========================================
-   7. FOOTER
+   7. EMPTY STATE (Trạng thái chờ)
+   ========================================= */
+.empty-state {
+  text-align: center;
+  padding: 60px 20px;
+}
+
+.empty-icon {
+  font-size: 3.5rem;
+  color: var(--text-sub);
+  margin-bottom: 15px;
+  opacity: 0.6;
+}
+
+.empty-state h3 {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 5px;
+}
+
+.empty-state p {
+  font-size: 1rem;
+  color: var(--text-sub);
+}
+
+/* =========================================
+   8. FOOTER
    ========================================= */
 footer {
   text-align: center;
-  padding: 40px 20px;
-  background: var(--card-bg);
-  border-top: 1px solid var(--border);
-  margin-top: 40px;
+  padding: 30px 20px;
+  margin-top: 20px;
+  color: var(--text-sub);
+  font-size: 0.9rem;
 }
 
 .social-icons {
@@ -297,59 +375,79 @@ footer {
   justify-content: center;
   margin: 0 5px;
   border-radius: 50%;
-  background: var(--bg);
+  background: var(--list-bg);
+  box-shadow: 0 2px 10px rgba(0,0,0,0.05);
   color: var(--text);
-  transition: 0.3s;
+  font-size: 1.1rem;
+  transition: all 0.2s;
 }
 
 .social-icons .social-link:hover {
-  background: var(--accent);
-  color: #fff;
-  transform: translateY(-3px);
-}
-
-.copyright {
-  color: var(--text-sub);
-  font-size: 0.9rem;
+  transform: scale(1.1);
+  color: var(--accent);
 }
 
 /* =========================================
-   8. RESPONSIVE (MOBILE)
+   9. MOBILE OPTIMIZATION
    ========================================= */
 @media (max-width: 991px) {
-
-  /* Fix menu xổ xuống trên mobile */
   .navbar-collapse {
-    background-color: var(--card-bg);
+    background-color: var(--list-bg);
     position: absolute;
     top: 100%;
-    left: 0;
-    right: 0;
-    padding: 20px;
-    border-bottom: 1px solid var(--border);
-    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.05);
+    left: 15px;
+    right: 15px;
+    padding: 15px;
+    border-radius: 16px;
+    border: 0.5px solid var(--border);
+    box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+    margin-top: 10px;
+    z-index: 1000;
   }
 
   .navbar-nav .nav-link {
     margin-left: 0;
-    padding: 10px 0 !important;
-    border-bottom: 1px solid var(--border);
-  }
-
-  .nav-item.pl-3 {
-    padding-left: 0 !important;
-    margin-top: 15px;
+    padding: 12px 15px !important;
   }
 }
 
 @media (max-width: 768px) {
-  .project-grid {
-    padding: 0 20px 40px;
-    grid-template-columns: 1fr;
-    /* 1 cột trên điện thoại */
+  body {
+    padding-top: 60px;
+  }
+  
+  .hero-section {
+    padding: 30px 20px 10px;
   }
 
-  h2 {
-    margin: 30px 20px 15px;
+  .hero-title {
+    font-size: 2.2rem;
+  }
+  
+  .hero-subtitle {
+    font-size: 1rem;
+  }
+
+  .semester-tabs-container {
+    top: 60px;
+    padding: 10px 15px;
+  }
+
+  .course-list {
+    border-radius: 16px;
+  }
+
+  .course-item {
+    padding: 14px 16px;
+  }
+  
+  .course-icon {
+    width: 44px;
+    height: 44px;
+    font-size: 1.3rem;
+  }
+
+  .course-info h3 {
+    font-size: 1.1rem;
   }
 }

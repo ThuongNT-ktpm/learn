@@ -2,92 +2,30 @@
 <html lang="vi">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Tien Thuong - University</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title>Tien Thuong - University Kho Tàng Lập Trình</title>
     <link rel="icon" href="/images/favicon.ico" type="image/x-icon" />
 
-    <link
-      rel="stylesheet"
-      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
-    />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
 
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-    />
-
-    <link
-      href="https://fonts.googleapis.com/css2?family=Russo+One&family=Varela+Round&family=Roboto:wght@400;700&display=swap"
-      rel="stylesheet"
-    />
-    <meta
-      name="description"
-      content="Portfolio của Nguyễn Tiến Thương - Sinh viên Software Engineering chuyên Backend, Java và Web Development. Chia sẻ dự án và tài liệu học tập CNTT."
-    />
-
-    <meta
-      name="keywords"
-      content="Nguyễn Tiến Thương, Thuong-Dev, Software Engineering, Java, Spring Boot, Portfolio sinh viên CNTT"
-    />
-
+    <meta name="description" content="Portfolio của Nguyễn Tiến Thương - Sinh viên Software Engineering chuyên Backend, Java và Web Development." />
     <meta name="author" content="Nguyễn Tiến Thương" />
 
-    <link rel="canonical" href="https://thuongnt-ktpm.github.io/" />
-    <meta
-      property="og:title"
-      content="Thuong-Dev — Software Engineering Portfolio"
-    />
-    <meta
-      property="og:description"
-      content="Khám phá các dự án lập trình và kho tài liệu học tập của Tiến Thương."
-    />
-    <link
-      rel="apple-touch-icon"
-      sizes="180x180"
-      href="images/apple-touch-icon.png"
-    />
-
-    <link
-      rel="icon"
-      type="image/png"
-      sizes="32x32"
-      href="images/favicon-32x32.png"
-    />
-    <link
-      rel="icon"
-      type="images/png"
-      sizes="16x16"
-      href="image/favicon-16x16.png"
-    />
-
-    <link
-      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
-      rel="stylesheet"
-    />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
-    />
-
-    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/style.css?v=8" />
   </head>
   <body>
+    <!-- Navbar -->
     <nav class="navbar navbar-expand-lg fixed-top">
-      <div class="container">
+      <div class="container-fluid px-3 px-md-5">
         <a class="navbar-brand" href="https://thuongnt-ktpm.github.io/portfoliothuong/">
           Tien Thuong
         </a>
-
         <button id="theme-toggle" class="btn-theme ml-auto mr-2 order-lg-last" title="Chuyển giao diện">
             <i class="fas fa-moon"></i>
         </button>
-
-        <button
-          class="navbar-toggler"
-          type="button"
-          data-toggle="collapse"
-          data-target="#navbarNav"
-        >
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav">
           <i class="fas fa-bars"></i>
         </button>
 
@@ -97,7 +35,7 @@
               <a class="nav-link" href="https://thuongnt-ktpm.github.io/portfoliothuong/">Home</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="https://thuongnt-ktpm.github.io/learn/">University</a>
+              <a class="nav-link active" href="https://thuongnt-ktpm.github.io/learn/">University</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="https://thuongnt-ktpm.github.io/learn2/">Coursera</a>
@@ -106,431 +44,321 @@
         </div>
       </div>
     </nav>
-    <main>
-      <h1>Các môn mình đã học ở đại học</h1>
+
+    <!-- Hero Section -->
+    <div class="hero-section">
+      <h1 class="hero-title">Kho Tài Liệu & Source Code</h1>
+      <p class="hero-subtitle">Tra cứu toàn bộ giáo trình, đề thi (PE/FE), và đồ án chuyên ngành Software Engineering qua các học kỳ.</p>
+    </div>
+
+    <main class="container">
+      <!-- Tabs Navigation (9 Semesters) -->
+      <div class="semester-tabs-container sticky-tabs">
+        <ul class="nav nav-pills semester-tabs" id="semester-tab" role="tablist">
+          <li class="nav-item"><a class="nav-link active" id="ky1-tab" data-toggle="pill" href="#ky1" role="tab" aria-controls="ky1" aria-selected="true">Kỳ I</a></li>
+          <li class="nav-item"><a class="nav-link" id="ky2-tab" data-toggle="pill" href="#ky2" role="tab" aria-controls="ky2" aria-selected="false">Kỳ II</a></li>
+          <li class="nav-item"><a class="nav-link" id="ky3-tab" data-toggle="pill" href="#ky3" role="tab" aria-controls="ky3" aria-selected="false">Kỳ III</a></li>
+          <li class="nav-item"><a class="nav-link" id="ky4-tab" data-toggle="pill" href="#ky4" role="tab" aria-controls="ky4" aria-selected="false">Kỳ IV</a></li>
+          <li class="nav-item"><a class="nav-link" id="ky5-tab" data-toggle="pill" href="#ky5" role="tab" aria-controls="ky5" aria-selected="false">Kỳ V</a></li>
+          <li class="nav-item"><a class="nav-link" id="ky6-tab" data-toggle="pill" href="#ky6" role="tab" aria-controls="ky6" aria-selected="false">Kỳ VI</a></li>
+          <li class="nav-item"><a class="nav-link" id="ky7-tab" data-toggle="pill" href="#ky7" role="tab" aria-controls="ky7" aria-selected="false">Kỳ VII</a></li>
+          <li class="nav-item"><a class="nav-link" id="ky8-tab" data-toggle="pill" href="#ky8" role="tab" aria-controls="ky8" aria-selected="false">Kỳ VIII</a></li>
+          <li class="nav-item"><a class="nav-link" id="ky9-tab" data-toggle="pill" href="#ky9" role="tab" aria-controls="ky9" aria-selected="false">Kỳ IX</a></li>
+        </ul>
+      </div>
+
+      <!-- Tabs Content -->
+      <div class="tab-content" id="semester-tabContent">
+        
+        <!-- Kỳ I -->
+        <div class="tab-pane fade show active" id="ky1" role="tabpanel" aria-labelledby="ky1-tab">
+          <div class="course-list">
+            
+            <a href="https://drive.google.com/drive/folders/1A5p7HeSchMoDST7UnNDJR0n5P5BmUSJO" target="_blank" class="course-item">
+              <div class="course-icon bg-gradient-1"><i class="fa-solid fa-book-open"></i></div>
+              <div class="course-info">
+                <h3>SSLc</h3>
+                <p>Academic Skills</p>
+                <div class="tags"><span class="badge-tag">Đề thi kì trước</span> <span class="badge-tag">Môn lý thuyết</span></div>
+              </div>
+              <div class="course-action"><i class="fa-solid fa-chevron-right"></i></div>
+            </a>
+
+            <a href="https://quizlet.com/vn/1013609232/cea201-thw-flash-cards" target="_blank" class="course-item">
+              <div class="course-icon bg-gradient-2"><i class="fa-solid fa-microchip"></i></div>
+              <div class="course-info">
+                <h3>CEA201</h3>
+                <p>Computer Architecture</p>
+                <div class="tags"><span class="badge-tag">Quizlet</span></div>
+              </div>
+              <div class="course-action"><i class="fa-solid fa-chevron-right"></i></div>
+            </a>
+
+            <a href="https://quizlet.com/vn/1013609839/csi106-thw-flash-cards" target="_blank" class="course-item">
+              <div class="course-icon bg-gradient-3"><i class="fa-solid fa-laptop-code"></i></div>
+              <div class="course-info">
+                <h3>CSI106</h3>
+                <p>Intro to Computer Science</p>
+                <div class="tags"><span class="badge-tag">Quizlet</span></div>
+              </div>
+              <div class="course-action"><i class="fa-solid fa-chevron-right"></i></div>
+            </a>
+
+            <a href="https://drive.google.com/drive/folders/16TuM6waqPJNRLRfD4wecYr036zttdqNg" target="_blank" class="course-item">
+              <div class="course-icon bg-gradient-4"><i class="fa-solid fa-code"></i></div>
+              <div class="course-info">
+                <h3>PRF192</h3>
+                <p>Programming Fundamentals (C)</p>
+                <div class="tags"><span class="badge-tag highlight-alert">Cẩn thận PE</span> <span class="badge-tag">PE Copy</span></div>
+              </div>
+              <div class="course-action"><i class="fa-solid fa-chevron-right"></i></div>
+            </a>
+
+            <a href="https://drive.google.com/drive/folders/1kZOKU6zg5yybGqeUNtQJF3yXZfn6QLSY" target="_blank" class="course-item">
+              <div class="course-icon bg-gradient-5"><i class="fa-solid fa-calculator"></i></div>
+              <div class="course-info">
+                <h3>MAE101</h3>
+                <p>Math for Engineering</p>
+                <div class="tags"><span class="badge-tag">Video Record</span></div>
+              </div>
+              <div class="course-action"><i class="fa-solid fa-chevron-right"></i></div>
+            </a>
+
+          </div>
+        </div>
+
+        <!-- Kỳ II -->
+        <div class="tab-pane fade" id="ky2" role="tabpanel" aria-labelledby="ky2-tab">
+          <div class="course-list">
+            
+            <a href="https://drive.google.com/drive/folders/1SnFZI3ZkknJ53sevM8u2E6Br6GLk--TO" target="_blank" class="course-item">
+              <div class="course-icon bg-gradient-1"><i class="fa-solid fa-desktop"></i></div>
+              <div class="course-info">
+                <h3>OSG202</h3>
+                <p>Operating System</p>
+                <div class="tags"><span class="badge-tag">Quizlet</span></div>
+              </div>
+              <div class="course-action"><i class="fa-solid fa-chevron-right"></i></div>
+            </a>
+
+            <a href="https://drive.google.com/drive/folders/1KhqWUK8EePrJNZe7r5ODY6VwgY5KKCTj" target="_blank" class="course-item">
+              <div class="course-icon bg-gradient-2"><i class="fa-solid fa-network-wired"></i></div>
+              <div class="course-info">
+                <h3>NWC204</h3>
+                <p>Computer Networking</p>
+                <div class="tags"><span class="badge-tag">IT Exam Answers</span></div>
+              </div>
+              <div class="course-action"><i class="fa-solid fa-chevron-right"></i></div>
+            </a>
+
+            <a href="https://drive.google.com/drive/folders/1josVVY9FmeDwQRCLaSx8xe8slJh1cqn9" target="_blank" class="course-item">
+              <div class="course-icon bg-gradient-6"><i class="fa-brands fa-java"></i></div>
+              <div class="course-info">
+                <h3>PRO192</h3>
+                <p>Java Object-Oriented Programming</p>
+                <div class="tags"><span class="badge-tag highlight-success">PE Trúng 80%</span> <span class="badge-tag">Đề PE & FE</span></div>
+              </div>
+              <div class="course-action"><i class="fa-solid fa-chevron-right"></i></div>
+            </a>
+
+            <a href="https://drive.google.com/drive/folders/1Svp1tWPyz_hEDjfkHgDO51NGMsL6YY_y" target="_blank" class="course-item">
+              <div class="course-icon bg-gradient-3"><i class="fa-solid fa-globe"></i></div>
+              <div class="course-info">
+                <h3>WED201</h3>
+                <p>Web Design</p>
+                <div class="tags"><span class="badge-tag">Đề luyện PE</span></div>
+              </div>
+              <div class="course-action"><i class="fa-solid fa-chevron-right"></i></div>
+            </a>
+
+            <a href="https://drive.google.com/drive/folders/1251_3cKN-EcTK2yhM8dPd_BAQGeEcWci" target="_blank" class="course-item">
+              <div class="course-icon bg-gradient-4"><i class="fa-solid fa-infinity"></i></div>
+              <div class="course-info">
+                <h3>MAD101</h3>
+                <p>Discrete Mathematics</p>
+                <div class="tags"><span class="badge-tag">Video Record</span></div>
+              </div>
+              <div class="course-action"><i class="fa-solid fa-chevron-right"></i></div>
+            </a>
+
+          </div>
+        </div>
+
+        <!-- Kỳ III -->
+        <div class="tab-pane fade" id="ky3" role="tabpanel" aria-labelledby="ky3-tab">
+          <div class="course-list">
+            
+            <a href="https://drive.google.com/drive/folders/1lEHrMRgLxwsU76zl0yikJwB5agI4Bjyd" target="_blank" class="course-item">
+              <div class="course-icon bg-gradient-3"><i class="fa-solid fa-chart-pie"></i></div>
+              <div class="course-info">
+                <h3>MAS291</h3>
+                <p>Statistics & Probability</p>
+                <div class="tags"><span class="badge-tag">Video khóa học</span> <span class="badge-tag">Giải đề bấm máy</span></div>
+              </div>
+              <div class="course-action"><i class="fa-solid fa-chevron-right"></i></div>
+            </a>
+
+            <a href="https://drive.google.com/drive/folders/18BTiHJJmmtOAuLrYFmv1B85sPk5XmA84" target="_blank" class="course-item">
+              <div class="course-icon bg-gradient-4"><i class="fa-solid fa-sitemap"></i></div>
+              <div class="course-info">
+                <h3>CSD201</h3>
+                <p>Data Structures & Algorithms</p>
+                <div class="tags"><span class="badge-tag highlight-alert">PE / FE</span> <span class="badge-tag">Lớp Thầy Khanh</span></div>
+              </div>
+              <div class="course-action"><i class="fa-solid fa-chevron-right"></i></div>
+            </a>
+
+            <a href="https://drive.google.com/drive/folders/1SippPJ87j4Q4g2K7U5OomlaZB26KZJnt" target="_blank" class="course-item">
+              <div class="course-icon bg-gradient-2"><i class="fa-solid fa-database"></i></div>
+              <div class="course-info">
+                <h3>DBI202</h3>
+                <p>Database Systems</p>
+                <div class="tags"><span class="badge-tag">PE Cô Dung</span> <span class="badge-tag">FE Tủ</span></div>
+              </div>
+              <div class="course-action"><i class="fa-solid fa-chevron-right"></i></div>
+            </a>
+
+            <a href="https://drive.google.com/drive/folders/1fvZUQlc9_oZ0hcDsJYTOXw5JJx_tZmHu" target="_blank" class="course-item">
+              <div class="course-icon bg-gradient-6"><i class="fa-solid fa-flask"></i></div>
+              <div class="course-info">
+                <h3>Lab211</h3>
+                <p>OOP with Java Core Lab</p>
+                <div class="tags"><span class="badge-tag">Lớp Cô NgaCH</span></div>
+              </div>
+              <div class="course-action"><i class="fa-solid fa-chevron-right"></i></div>
+            </a>
+
+            <a href="https://drive.google.com/drive/folders/1YN3E0_hU8NaYebZrgeU9-ESij_k-Es7q" target="_blank" class="course-item">
+              <div class="course-icon bg-gradient-1"><i class="fa-solid fa-language"></i></div>
+              <div class="course-info">
+                <h3>JPD113</h3>
+                <p>Elementary Japanese 1 (A1.1)</p>
+                <div class="tags"><span class="badge-tag">Bài thi nói</span></div>
+              </div>
+              <div class="course-action"><i class="fa-solid fa-chevron-right"></i></div>
+            </a>
+
+          </div>
+        </div>
+
+        <!-- Kỳ IV -->
+        <div class="tab-pane fade" id="ky4" role="tabpanel" aria-labelledby="ky4-tab">
+          <div class="course-list">
+            
+            <a href="https://drive.google.com/drive/folders/1zh6K_ciGJqZ_nPWH_XFWp7DuLmwJeczH" target="_blank" class="course-item">
+              <div class="course-icon bg-gradient-2"><i class="fa-solid fa-wifi"></i></div>
+              <div class="course-info">
+                <h3>IOT102</h3>
+                <p>Internet of Things</p>
+                <div class="tags"><span class="badge-tag highlight-success">Source Hệ Thống Chống Trộm</span></div>
+              </div>
+              <div class="course-action"><i class="fa-solid fa-chevron-right"></i></div>
+            </a>
+
+            <a href="https://drive.google.com/drive/folders/1X6aS62v1LSj-npENYDfdetXwRo-cyLx3" target="_blank" class="course-item">
+              <div class="course-icon bg-gradient-6"><i class="fa-brands fa-java"></i></div>
+              <div class="course-info">
+                <h3>PRJ301</h3>
+                <p>Java Web Application</p>
+                <div class="tags"><span class="badge-tag highlight-alert">Thi vấn đáp & PE</span></div>
+              </div>
+              <div class="course-action"><i class="fa-solid fa-chevron-right"></i></div>
+            </a>
+
+            <a href="https://drive.google.com/drive/folders/1Z0ukQAMvPj5mM3EYjiSnGdgTqMlu4SJt" target="_blank" class="course-item">
+              <div class="course-icon bg-gradient-1"><i class="fa-solid fa-language"></i></div>
+              <div class="course-info">
+                <h3>JPD123</h3>
+                <p>Japanese A1.2</p>
+                <div class="tags"><span class="badge-tag">Tài liệu Kaiwa</span></div>
+              </div>
+              <div class="course-action"><i class="fa-solid fa-chevron-right"></i></div>
+            </a>
+
+            <a href="https://drive.google.com/drive/folders/1r8gGCmjhQrtxg0LfR8_aS9VR8wPFUpmw" target="_blank" class="course-item">
+              <div class="course-icon bg-gradient-3"><i class="fa-solid fa-users"></i></div>
+              <div class="course-info">
+                <h3>SSG104</h3>
+                <p>Communication & In-Group Working</p>
+                <div class="tags"><span class="badge-tag">Mẫu PPT Thuyết trình</span></div>
+              </div>
+              <div class="course-action"><i class="fa-solid fa-chevron-right"></i></div>
+            </a>
+
+            <a href="https://drive.google.com/drive/folders/1K2zzRnV_T50LEucRAUxakybn7jKDFnNB" target="_blank" class="course-item">
+              <div class="course-icon bg-gradient-4"><i class="fa-solid fa-diagram-project"></i></div>
+              <div class="course-info">
+                <h3>SWE202c</h3>
+                <p>Intro to Software Engineering</p>
+                <div class="tags"><span class="badge-tag">Đề thi viết TA</span> <span class="badge-tag">Luyện MVC</span></div>
+              </div>
+              <div class="course-action"><i class="fa-solid fa-chevron-right"></i></div>
+            </a>
+
+          </div>
+        </div>
+
+        <!-- Kỳ V -->
+        <div class="tab-pane fade" id="ky5" role="tabpanel" aria-labelledby="ky5-tab">
+          <div class="empty-state">
+            <div class="empty-icon"><i class="fa-solid fa-laptop-code"></i></div>
+            <h3>Khối chuyên ngành hẹp</h3>
+            <p>Tài liệu và source code của Kỳ V sẽ được tổng hợp trong thời gian tới.</p>
+          </div>
+        </div>
+
+        <!-- Kỳ VI -->
+        <div class="tab-pane fade" id="ky6" role="tabpanel" aria-labelledby="ky6-tab">
+          <div class="empty-state">
+            <div class="empty-icon"><i class="fa-solid fa-server"></i></div>
+            <h3>OJT - Thực tập Doanh nghiệp</h3>
+            <p>Hành trang thực tập chuẩn bị xuất hiện tại đây.</p>
+          </div>
+        </div>
+
+        <!-- Kỳ VII -->
+        <div class="tab-pane fade" id="ky7" role="tabpanel" aria-labelledby="ky7-tab">
+          <div class="empty-state">
+            <div class="empty-icon"><i class="fa-solid fa-layer-group"></i></div>
+            <h3>Architecture & Testing</h3>
+            <p>Nội dung công nghệ nâng cao của Kỳ VII sẽ sớm xuất hiện.</p>
+          </div>
+        </div>
+
+        <!-- Kỳ VIII -->
+        <div class="tab-pane fade" id="ky8" role="tabpanel" aria-labelledby="ky8-tab">
+          <div class="empty-state">
+            <div class="empty-icon"><i class="fa-solid fa-shield-halved"></i></div>
+            <h3>Gần đích rồi!</h3>
+            <p>Các tài liệu và Capstone prep của Kỳ VIII đang được chuẩn bị.</p>
+          </div>
+        </div>
+
+        <!-- Kỳ IX -->
+        <div class="tab-pane fade" id="ky9" role="tabpanel" aria-labelledby="ky9-tab">
+          <div class="empty-state">
+            <div class="empty-icon"><i class="fa-solid fa-graduation-cap"></i></div>
+            <h3>Đồ án Tốt nghiệp (Capstone Project)</h3>
+            <p>Kỳ cuối cùng! Source code đồ án thực tế sẽ được public tại đây.</p>
+          </div>
+        </div>
+        
+      </div>
     </main>
 
-    <h2>Kỳ I</h2>
-    <section class="project-grid">
-      <div class="project-card">
-        <div class="project-image">
-          <img src="images/aaa.png" alt="SSLc" />
-        </div>
-        <div class="project-content">
-          <p><strong>SSLc</strong></p>
-          <ul>
-            <li>
-              <strong>Subject:</strong> Academic skills for University success
-            </li>
-            <li><strong>Content:</strong> Môn lý thuyết</li>
-            <li><strong>Source:</strong> Đề thi kì trước</li>
-          </ul>
-          <a
-            href="https://drive.google.com/drive/folders/1A5p7HeSchMoDST7UnNDJR0n5P5BmUSJO"
-            class="btn-view"
-            >Xem thêm</a
-          >
-        </div>
-      </div>
-
-      <div class="project-card">
-        <div class="project-image">
-          <img src="images/aaa.png" alt="CEA201" />
-        </div>
-        <div class="project-content">
-          <p><strong>CEA201</strong></p>
-          <ul>
-            <li>
-              <strong>Subject:</strong> Computer Organization and Architecture
-            </li>
-            <li><strong>Content:</strong>Môn lý thuyết</li>
-            <li><strong>Source:</strong> quizlet</li>
-          </ul>
-          <a
-            href="https://quizlet.com/vn/1013609232/cea201-thw-flash-cards/?funnelUUID=42703f93-50f7-48f2-a6a8-09ee99d634e7"
-            class="btn-view"
-            >Xem thêm</a
-          >
-        </div>
-      </div>
-
-      <div class="project-card">
-        <div class="project-image">
-          <img src="images/aaa.png" alt="CSI106" />
-        </div>
-        <div class="project-content">
-          <p><strong>CSI106</strong></p>
-          <ul>
-            <li><strong>Subject:</strong>Introduction to Computer Science</li>
-            <li><strong>Content:</strong>Môn lý thuyết</li>
-            <li><strong>Source:</strong> quizlet</li>
-          </ul>
-          <a
-            href="https://quizlet.com/vn/1013609839/csi106-thw-flash-cards/?funnelUUID=cf2bf3d3-df52-496d-a053-e76532f8cc09"
-            class="btn-view"
-            >Xem thêm</a
-          >
-        </div>
-      </div>
-
-      <div class="project-card">
-        <div class="project-image">
-          <img src="images/aaa.png" alt="PRF192" />
-        </div>
-        <div class="project-content">
-          <p><strong>PRF192</strong></p>
-          <ul>
-            <li><strong>Subject:</strong> Programming Fundamentals</li>
-            <li><strong>Content:</strong>Cẩn thận PE</li>
-            <li><strong>Source:</strong> PE copy & quizlet</li>
-          </ul>
-          <a
-            href="https://drive.google.com/drive/folders/16TuM6waqPJNRLRfD4wecYr036zttdqNg"
-            class="btn-view"
-            >Xem thêm</a
-          >
-        </div>
-      </div>
-
-      <div class="project-card">
-        <div class="project-image">
-          <img src="images/aaa.png" alt="MAE101" />
-        </div>
-        <div class="project-content">
-          <p><strong>MAE101</strong></p>
-          <ul>
-            <li><strong>Subject:</strong>Mathematics for Engineering</li>
-            <li><strong>Content:</strong> Video record</li>
-            <li><strong>Source:</strong> Đề thi kì trước</li>
-          </ul>
-          <a
-            href="https://drive.google.com/drive/folders/1kZOKU6zg5yybGqeUNtQJF3yXZfn6QLSY"
-            class="btn-view"
-            >Xem thêm</a
-          >
-        </div>
-      </div>
-    </section>
-
-    <h2>Kỳ II</h2>
-    <section class="project-grid">
-      <div class="project-card">
-        <div class="project-image">
-          <img src="images/aaa.png" alt="OSG202" />
-        </div>
-        <div class="project-content">
-          <p><strong>OSG202</strong></p>
-          <ul>
-            <li><strong>Subject:</strong> Operating System</li>
-            <li><strong>Content:</strong> Môn lý thuyết</li>
-            <li><strong>Source:</strong> quizlet</li>
-          </ul>
-          <a
-            href="https://drive.google.com/drive/folders/1SnFZI3ZkknJ53sevM8u2E6Br6GLk--TO"
-            class="btn-view"
-            >Xem thêm</a
-          >
-        </div>
-      </div>
-
-      <div class="project-card">
-        <div class="project-image">
-          <img src="images/aaa.png" alt="NWC204" />
-        </div>
-        <div class="project-content">
-          <p><strong>NWC204</strong></p>
-          <ul>
-            <li><strong>Subject:</strong> Computer Networking</li>
-            <li><strong>Content:</strong> Môn lý thuyết</li>
-            <li><strong>Source:</strong> IT Exam Answers</li>
-          </ul>
-          <a
-            href="https://drive.google.com/drive/folders/1KhqWUK8EePrJNZe7r5ODY6VwgY5KKCTj"
-            class="btn-view"
-            >Xem thêm</a
-          >
-        </div>
-      </div>
-
-      <div class="project-card">
-        <div class="project-image">
-          <img src="images/aaa.png" alt="PRO192" />
-        </div>
-        <div class="project-content">
-          <p><strong>PRO192</strong></p>
-          <ul>
-            <li><strong>Subject:</strong> Java OOP</li>
-            <li><strong>Content:</strong> Tỉ lệ trúng 80%</li>
-            <li><strong>Source:</strong> Đề PE & FE</li>
-          </ul>
-          <a
-            href="https://drive.google.com/drive/folders/1josVVY9FmeDwQRCLaSx8xe8slJh1cqn9"
-            class="btn-view"
-            >Xem thêm</a
-          >
-        </div>
-      </div>
-
-      <div class="project-card">
-        <div class="project-image">
-          <img src="images/aaa.png" alt="WED201" />
-        </div>
-        <div class="project-content">
-          <p><strong>WED201</strong></p>
-          <ul>
-            <li><strong>Subject:</strong> Web design</li>
-            <li><strong>Content:</strong>Luyện nhiều là HDPE luôn</li>
-            <li><strong>Source:</strong> Đề PE & FE</li>
-          </ul>
-          <a
-            href="https://drive.google.com/drive/folders/1Svp1tWPyz_hEDjfkHgDO51NGMsL6YY_y"
-            class="btn-view"
-            >Xem thêm</a
-          >
-        </div>
-      </div>
-
-      <div class="project-card">
-        <div class="project-image">
-          <img src="images/aaa.png" alt="MAD101" />
-        </div>
-        <div class="project-content">
-          <p><strong>MAD101</strong></p>
-          <ul>
-            <li><strong>Subject:</strong>Discrete mathematics</li>
-            <li><strong>Content:</strong> Video record</li>
-            <li><strong>Source:</strong> Đề thi kì trước</li>
-          </ul>
-          <a
-            href="https://drive.google.com/drive/folders/1251_3cKN-EcTK2yhM8dPd_BAQGeEcWci"
-            class="btn-view"
-            >Xem thêm</a
-          >
-        </div>
-      </div>
-    </section>
-
-    <h2>Kỳ III</h2>
-    <section class="project-grid">
-      <div class="project-card">
-        <div class="project-image">
-          <img src="images/aaa.png" alt="MAS291" />
-        </div>
-        <div class="project-content">
-          <p><strong>MAS291</strong></p>
-          <ul>
-            <li><strong>Subject:</strong> Statistics & Probability</li>
-            <li><strong>Content:</strong> Video khóa học</li>
-            <li><strong>Source:</strong> Giải đề bấm máy</li>
-          </ul>
-          <a
-            href="https://drive.google.com/drive/folders/1lEHrMRgLxwsU76zl0yikJwB5agI4Bjyd"
-            class="btn-view"
-            >Xem thêm</a
-          >
-        </div>
-      </div>
-      <div class="project-card">
-        <div class="project-image">
-          <img src="images/aaa.png" alt="CSD201" />
-        </div>
-        <div class="project-content">
-          <p><strong>CSD201</strong></p>
-          <ul>
-            <li><strong>Subject:</strong>Data Structures and Algorithm</li>
-            <li><strong>Content:</strong> Đề PE và FE</li>
-            <li><strong>Source:</strong> Lớp Thầy Khanh</li>
-          </ul>
-          <a
-            href="https://drive.google.com/drive/folders/18BTiHJJmmtOAuLrYFmv1B85sPk5XmA84"
-            class="btn-view"
-            >Xem thêm</a
-          >
-        </div>
-      </div>
-      <div class="project-card">
-        <div class="project-image">
-          <img src="images/aaa.png" alt="DBI202" />
-        </div>
-        <div class="project-content">
-          <p><strong>DBI202</strong></p>
-          <ul>
-            <li><strong>Subject:</strong> Database Systems</li>
-            <li><strong>Content:</strong> Đề luyện PE/FE</li>
-            <li><strong>Source:</strong> PE cô Dung, FE tủ</li>
-          </ul>
-          <a
-            href="https://drive.google.com/drive/folders/1SippPJ87j4Q4g2K7U5OomlaZB26KZJnt"
-            class="btn-view"
-            >Xem thêm</a
-          >
-        </div>
-      </div>
-      <div class="project-card">
-        <div class="project-image">
-          <img src="images/aaa.png" alt="Lab211" />
-        </div>
-        <div class="project-content">
-          <p><strong>Lab211</strong></p>
-          <ul>
-            <li><strong>Subject:</strong>OOP with Java Lab</li>
-            <li><strong>Content:</strong> Lớp Cô NgaCH</li>
-            <li><strong>Source:</strong> Các bài lab</li>
-          </ul>
-          <a
-            href="https://drive.google.com/drive/folders/1fvZUQlc9_oZ0hcDsJYTOXw5JJx_tZmHu"
-            class="btn-view"
-            >Xem thêm</a
-          >
-        </div>
-      </div>
-      <div class="project-card">
-        <div class="project-image">
-          <img src="images/aaa.png" alt="JPD113" />
-        </div>
-        <div class="project-content">
-          <p><strong>JPD113</strong></p>
-          <ul>
-            <li><strong>Subject:</strong> Elementary Japanese 1- A1.1</li>
-            <li><strong>Content:</strong> Tài liệu học</li>
-            <li><strong>Source:</strong> Bài thi nói</li>
-          </ul>
-          <a
-            href="https://drive.google.com/drive/folders/1YN3E0_hU8NaYebZrgeU9-ESij_k-Es7q"
-            class="btn-view"
-            >Xem thêm</a
-          >
-        </div>
-      </div>
-    </section>
-
-    <h2>Kỳ IV</h2>
-    <section class="project-grid">
-      <div class="project-card">
-        <div class="project-image">
-          <img src="images/aaa.png" alt="IOT102" />
-        </div>
-        <div class="project-content">
-          <p><strong>IOT102</strong></p>
-          <ul>
-            <li><strong>Subject:</strong>Internet of Things</li>
-            <li><strong>Content:</strong> Làm project</li>
-            <li><strong>Source:</strong> Hệ thống chống trộm Smart</li>
-          </ul>
-          <a
-            href="https://drive.google.com/drive/folders/1zh6K_ciGJqZ_nPWH_XFWp7DuLmwJeczH"
-            class="btn-view"
-            >Xem thêm</a
-          >
-        </div>
-      </div>
-      <div class="project-card">
-        <div class="project-image">
-          <img src="images/aaa.png" alt="PRJ301" />
-        </div>
-        <div class="project-content">
-          <p><strong>PRJ301</strong></p>
-          <ul>
-            <li><strong>Subject:</strong> Java Web App</li>
-            <li><strong>Content:</strong> Cẩn thận PE và thi nói</li>
-            <li><strong>Source:</strong> Đề luyện PE</li>
-          </ul>
-          <a
-            href="https://drive.google.com/drive/folders/1X6aS62v1LSj-npENYDfdetXwRo-cyLx3"
-            class="btn-view"
-            >Xem thêm</a
-          >
-        </div>
-      </div>
-      <div class="project-card">
-        <div class="project-image">
-          <img src="images/aaa.png" alt="JPD123" />
-        </div>
-        <div class="project-content">
-          <p><strong>JPD123</strong></p>
-          <ul>
-            <li><strong>Subject:</strong> Japanese A1.2</li>
-            <li><strong>Content:</strong> Cẩn thận thi nói</li>
-            <li><strong>Source:</strong> Tài liệu học</li>
-          </ul>
-          <a
-            href="https://drive.google.com/drive/folders/1Z0ukQAMvPj5mM3EYjiSnGdgTqMlu4SJt"
-            class="btn-view"
-            >Xem thêm</a
-          >
-        </div>
-      </div>
-      <div class="project-card">
-        <div class="project-image">
-          <img src="images/aaa.png" alt="SSG104" />
-        </div>
-        <div class="project-content">
-          <p><strong>SSG104</strong></p>
-          <ul>
-            <li>
-              <strong>Subject:</strong> Communication and In-Group Working
-              Skills
-            </li>
-            <li><strong>Content:</strong> Môn từ thiện</li>
-            <li><strong>Source:</strong> nội dung thuyết trình</li>
-          </ul>
-          <a
-            href="https://drive.google.com/drive/folders/1r8gGCmjhQrtxg0LfR8_aS9VR8wPFUpmw"
-            class="btn-view"
-            >Xem thêm</a
-          >
-        </div>
-      </div>
-      <div class="project-card">
-        <div class="project-image">
-          <img src="images/aaa.png" alt="SWE202c" />
-        </div>
-        <div class="project-content">
-          <p><strong>SWE202c</strong></p>
-          <ul>
-            <li>
-              <strong>Subject:</strong> Introduction to Software Engineering
-            </li>
-            <li><strong>Content:</strong>Thi viết tiếng anh</li>
-            <li><strong>Source:</strong>đề luyện MVC</li>
-          </ul>
-          <a
-            href="https://drive.google.com/drive/folders/1K2zzRnV_T50LEucRAUxakybn7jKDFnNB"
-            class="btn-view"
-            >Xem thêm</a
-          >
-        </div>
-      </div>
-    </section>
-
-    <footer id="end">
+    <footer>
       <div class="social-icons">
-        <a
-          href="https://www.facebook.com/tien.thuong.674774"
-          class="social-link"
-          ><i class="fab fa-facebook-f"></i
-        ></a>
-        <a href="https://github.com/ThuongNT-ktpm" class="social-link"
-          ><i class="fab fa-github"></i
-        ></a>
-        <a
-          href="https://mail.google.com/mail/u/0/?tab=rm&ogbl#inbox"
-          class="social-link"
-          ><i class="fas fa-envelope"></i
-        ></a>
-        <a href="https://www.tiktok.com/@tin.thng49" class="social-link"
-          ><i class="fab fa-tiktok"></i
-        ></a>
+        <a href="https://www.facebook.com/tien.thuong.674774" class="social-link" target="_blank"><i class="fab fa-facebook-f"></i></a>
+        <a href="https://github.com/ThuongNT-ktpm" class="social-link" target="_blank"><i class="fab fa-github"></i></a>
+        <a href="https://mail.google.com/mail/u/0/?tab=rm&ogbl#inbox" class="social-link" target="_blank"><i class="fas fa-envelope"></i></a>
+        <a href="https://www.tiktok.com/@tin.thng49" class="social-link" target="_blank"><i class="fab fa-tiktok"></i></a>
       </div>
-      <p class="copyright">© 2025 Nguyen Tien Thuong. Built with passion.</p>
+      <p class="copyright">© 2025 Nguyen Tien Thuong. Built with ❤️.</p>
     </footer>
-<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-
-    <script src="js/hihi.js"></script>
-  </body>
-</html>
     <script src="js/hihi.js"></script>
   </body>
 </html>
