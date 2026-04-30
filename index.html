@@ -1,1151 +1,873 @@
 <!doctype html>
 <html lang="vi">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Tien Thuong & Nhat Cuong - University Kho Tàng Lập Trình</title>
-    <link rel="icon" href="/images/favicon.ico" type="image/x-icon" />
 
-    <link
-      rel="stylesheet"
-      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
-    />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-    />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap"
-      rel="stylesheet"
-    />
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tien Thuong & Nhat Cuong - University Kho Tàng Lập Trình</title>
+  <link rel="icon" href="/images/favicon.ico" type="image/x-icon" />
 
-    <meta
-      name="description"
-      content="Kho lưu trữ tài liệu của Nguyễn Tiến Thương & Nhật Cường - Sinh viên Software Engineering."
-    />
-    <meta name="author" content="Nguyễn Tiến Thương & Nhật Cường" />
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap"
+    rel="stylesheet" />
 
-    <link rel="stylesheet" href="css/style.css?v=9" />
-  </head>
+  <meta name="description"
+    content="Kho lưu trữ tài liệu của Nguyễn Tiến Thương & Nhật Cường - Sinh viên Software Engineering." />
+  <meta name="author" content="Nguyễn Tiến Thương & Nhật Cường" />
 
-  <body>
-    <aside class="university-clock" aria-label="Thời gian học đại học">
-      <div class="clock-icon">
-        <i class="fa-solid fa-hourglass-half"></i>
+  <link rel="stylesheet" href="css/style.css?v=9" />
+</head>
+
+<body>
+  <aside class="university-clock" aria-label="Thời gian học đại học">
+    <div class="clock-icon">
+      <i class="fa-solid fa-hourglass-half"></i>
+    </div>
+    <div class="clock-content">
+      <div class="clock-topline">
+        <span class="clock-label">University Journey</span>
+        <span id="university-percent">0%</span>
       </div>
-      <div class="clock-content">
-        <div class="clock-topline">
-          <span class="clock-label">University Journey</span>
-          <span id="university-percent">0%</span>
-        </div>
-        <strong id="university-elapsed">Đang tính...</strong>
-        <span id="university-progress">Từ 20/09/2023</span>
-        <div class="clock-progress" aria-hidden="true">
-          <span id="university-progress-bar"></span>
-        </div>
+      <strong id="university-elapsed">Đang tính...</strong>
+      <span id="university-progress">Từ 20/09/2023</span>
+      <div class="clock-progress" aria-hidden="true">
+        <span id="university-progress-bar"></span>
       </div>
-      <a
-        id="journey-open"
-        class="clock-detail-button"
-        href="javascript:void(0)"
-        data-href="https://thuongnt-ktpm.github.io/memo/"
-        target="_blank"
-        rel="noopener noreferrer"
-        aria-label="Mở nhật ký hành trình đại học"
-      >
-        <i class="fa-solid fa-book-open"></i>
-        <span>Nhật ký</span>
+    </div>
+    <a id="journey-open" class="clock-detail-button" href="javascript:void(0)"
+      data-href="https://thuongnt-ktpm.github.io/memo/" target="_blank" rel="noopener noreferrer"
+      aria-label="Mở nhật ký hành trình đại học">
+      <i class="fa-solid fa-book-open"></i>
+      <span>Nhật ký</span>
+    </a>
+  </aside>
+
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg fixed-top">
+    <div class="container-fluid px-3 px-md-5">
+      <a class="navbar-brand" href="https://thuongnt-ktpm.github.io/portfoliothuong/">
+        Tien Thuong & Nhat Cuong
       </a>
-    </aside>
+      <button id="theme-toggle" class="btn-theme ml-auto mr-2 order-lg-last" title="Chuyển giao diện"
+        aria-label="Chuyển giao diện sáng tối">
+        <i class="fas fa-moon"></i>
+      </button>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-label="Mở menu">
+        <i class="fas fa-bars"></i>
+      </button>
 
-    <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg fixed-top">
-      <div class="container-fluid px-3 px-md-5">
-        <a
-          class="navbar-brand"
-          href="https://thuongnt-ktpm.github.io/portfoliothuong/"
-        >
-          Tien Thuong & Nhat Cuong
-        </a>
-        <button
-          id="theme-toggle"
-          class="btn-theme ml-auto mr-2 order-lg-last"
-          title="Chuyển giao diện"
-          aria-label="Chuyển giao diện sáng tối"
-        >
-          <i class="fas fa-moon"></i>
-        </button>
-        <button
-          class="navbar-toggler"
-          type="button"
-          data-toggle="collapse"
-          data-target="#navbarNav"
-          aria-label="Mở menu"
-        >
-          <i class="fas fa-bars"></i>
-        </button>
-
-        <div class="collapse navbar-collapse" id="navbarNav">
-          <ul class="navbar-nav ml-auto align-items-center mr-lg-3">
-            <li class="nav-item">
-              <a
-                class="nav-link"
-                href="https://thuongnt-ktpm.github.io/portfoliothuong/"
-                >Home</a
-              >
-            </li>
-            <li class="nav-item">
-              <a
-                class="nav-link active"
-                href="https://thuongnt-ktpm.github.io/learn/"
-                >University</a
-              >
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="https://thuongnt-ktpm.github.io/learn2/"
-                >Coursera</a
-              >
-            </li>
-            <li class="nav-item">
-              <a
-                class="nav-link"
-                href="https://thuongnt-ktpm.github.io/my-blog/"
-                >Blog</a
-              >
-            </li>
-          </ul>
-        </div>
-      </div>
-    </nav>
-
-    <!-- Hero Section -->
-    <div class="hero-section">
-      <div class="hero-kicker">
-        <i class="fa-solid fa-star"></i>
-        University Resource Hub
-      </div>
-      <h1 class="hero-title">Tài liệu, source code & đề thi</h1>
-
-      <p class="hero-subtitle">
-        Truy cập nhanh theo học kỳ, tìm mã môn và lọc tài liệu chỉ trong vài
-        giây.
-      </p>
-
-      <p class="hero-subtitle">
-        <strong>Lưu ý:</strong> Cần tài liệu, làm hộ bài tập, project vui lòng
-        liên hệ qua
-        <a
-          href="https://m.me/tien.thuong.674774"
-          target="_blank"
-          class="messenger-link"
-          >Messenger</a
-        >.
-      </p>
-  </div>
-
-    <main class="container">
-      <section class="resource-toolbar" aria-label="Tìm kiếm và lọc tài liệu">
-        <div class="search-box">
-          <i class="fa-solid fa-magnifying-glass"></i>
-          <input
-            id="course-search"
-            type="search"
-            placeholder="Tìm môn, mã môn, PE, Quizlet, React..."
-            autocomplete="off"
-            aria-label="Tìm kiếm tài liệu"
-          />
-          <button id="clear-search" type="button" aria-label="Xóa tìm kiếm">
-            <i class="fa-solid fa-xmark"></i>
-          </button>
-        </div>
-      </section>
-
-      <!-- Tabs Navigation (9 Semesters) -->
-      <div class="semester-tabs-container sticky-tabs">
-        <ul
-          class="nav nav-pills semester-tabs"
-          id="semester-tab"
-          role="tablist"
-        >
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ml-auto align-items-center mr-lg-3">
           <li class="nav-item">
-            <a
-              class="nav-link active"
-              id="ky1-tab"
-              data-toggle="pill"
-              href="#ky1"
-              role="tab"
-              aria-controls="ky1"
-              aria-selected="true"
-              >Kỳ I</a
-            >
+            <a class="nav-link" href="https://thuongnt-ktpm.github.io/portfoliothuong/">Home</a>
           </li>
           <li class="nav-item">
-            <a
-              class="nav-link"
-              id="ky2-tab"
-              data-toggle="pill"
-              href="#ky2"
-              role="tab"
-              aria-controls="ky2"
-              aria-selected="false"
-              >Kỳ II</a
-            >
+            <a class="nav-link active" href="https://thuongnt-ktpm.github.io/learn/">University</a>
           </li>
           <li class="nav-item">
-            <a
-              class="nav-link"
-              id="ky3-tab"
-              data-toggle="pill"
-              href="#ky3"
-              role="tab"
-              aria-controls="ky3"
-              aria-selected="false"
-              >Kỳ III</a
-            >
+            <a class="nav-link" href="https://thuongnt-ktpm.github.io/learn2/">Coursera</a>
           </li>
           <li class="nav-item">
-            <a
-              class="nav-link"
-              id="ky4-tab"
-              data-toggle="pill"
-              href="#ky4"
-              role="tab"
-              aria-controls="ky4"
-              aria-selected="false"
-              >Kỳ IV</a
-            >
-          </li>
-          <li class="nav-item">
-            <a
-              class="nav-link"
-              id="ky5-tab"
-              data-toggle="pill"
-              href="#ky5"
-              role="tab"
-              aria-controls="ky5"
-              aria-selected="false"
-              >Kỳ V</a
-            >
-          </li>
-          <li class="nav-item">
-            <a
-              class="nav-link"
-              id="ky6-tab"
-              data-toggle="pill"
-              href="#ky6"
-              role="tab"
-              aria-controls="ky6"
-              aria-selected="false"
-              >Kỳ VI</a
-            >
-          </li>
-          <li class="nav-item">
-            <a
-              class="nav-link"
-              id="ky7-tab"
-              data-toggle="pill"
-              href="#ky7"
-              role="tab"
-              aria-controls="ky7"
-              aria-selected="false"
-              >Kỳ VII</a
-            >
-          </li>
-          <li class="nav-item">
-            <a
-              class="nav-link"
-              id="ky8-tab"
-              data-toggle="pill"
-              href="#ky8"
-              role="tab"
-              aria-controls="ky8"
-              aria-selected="false"
-              >Kỳ VIII</a
-            >
-          </li>
-          <li class="nav-item">
-            <a
-              class="nav-link"
-              id="ky9-tab"
-              data-toggle="pill"
-              href="#ky9"
-              role="tab"
-              aria-controls="ky9"
-              aria-selected="false"
-              >Kỳ IX</a
-            >
+            <a class="nav-link" href="https://thuongnt-ktpm.github.io/my-blog/">Blog</a>
           </li>
         </ul>
       </div>
+    </div>
+  </nav>
 
-      <!-- Tabs Content -->
-      <div class="tab-content" id="semester-tabContent">
-        <!-- Kỳ I -->
-        <div
-          class="tab-pane fade show active"
-          id="ky1"
-          role="tabpanel"
-          aria-labelledby="ky1-tab"
-        >
-          <div class="course-list">
-            <a
-              href="https://drive.google.com/drive/folders/1A5p7HeSchMoDST7UnNDJR0n5P5BmUSJO"
-              target="_blank"
-              class="course-item"
-            >
-              <div class="course-icon bg-gradient-1">
-                <i class="fa-solid fa-book-open"></i>
-              </div>
-              <div class="course-info">
-                <h3>SSLc</h3>
-                <p>Academic Skills</p>
-                <div class="tags">
-                  <span class="badge-tag">Đề thi kì trước</span>
-                  <span class="badge-tag">Môn lý thuyết</span>
-                </div>
-              </div>
-              <div class="course-action">
-                <i class="fa-solid fa-chevron-right"></i>
-              </div>
-            </a>
+  <!-- Hero Section -->
+  <div class="hero-section">
+    <div class="hero-kicker">
+      <i class="fa-solid fa-star"></i>
+      University Resource Hub
+    </div>
+    <h1 class="hero-title">Tài liệu, source code & đề thi</h1>
 
-            <a
-              href="https://quizlet.com/vn/1013609232/cea201-thw-flash-cards"
-              target="_blank"
-              class="course-item"
-            >
-              <div class="course-icon bg-gradient-2">
-                <i class="fa-solid fa-microchip"></i>
-              </div>
-              <div class="course-info">
-                <h3>CEA201</h3>
-                <p>Computer Architecture</p>
-                <div class="tags"><span class="badge-tag">Quizlet</span></div>
-              </div>
-              <div class="course-action">
-                <i class="fa-solid fa-chevron-right"></i>
-              </div>
-            </a>
+    <p class="hero-subtitle">
+      Truy cập nhanh theo học kỳ, tìm mã môn và lọc tài liệu chỉ trong vài
+      giây.
+    </p>
 
-            <a
-              href="https://quizlet.com/vn/1013609839/csi106-thw-flash-cards"
-              target="_blank"
-              class="course-item"
-            >
-              <div class="course-icon bg-gradient-3">
-                <i class="fa-solid fa-laptop-code"></i>
-              </div>
-              <div class="course-info">
-                <h3>CSI106</h3>
-                <p>Intro to Computer Science</p>
-                <div class="tags"><span class="badge-tag">Quizlet</span></div>
-              </div>
-              <div class="course-action">
-                <i class="fa-solid fa-chevron-right"></i>
-              </div>
-            </a>
+    <p class="hero-subtitle">
+      <strong>Lưu ý:</strong> Cần tài liệu, làm hộ bài tập, project vui lòng
+      liên hệ qua
+      <a href="https://m.me/tien.thuong.674774" target="_blank" class="messenger-link">Messenger</a>.
+    </p>
+  </div>
 
-            <a
-              href="https://drive.google.com/drive/folders/16TuM6waqPJNRLRfD4wecYr036zttdqNg"
-              target="_blank"
-              class="course-item"
-            >
-              <div class="course-icon bg-gradient-4">
-                <i class="fa-solid fa-code"></i>
-              </div>
-              <div class="course-info">
-                <h3>PRF192</h3>
-                <p>Programming Fundamentals (C)</p>
-                <div class="tags">
-                  <span class="badge-tag highlight-alert">Cẩn thận PE</span>
-                  <span class="badge-tag">PE Copy</span>
-                </div>
-              </div>
-              <div class="course-action">
-                <i class="fa-solid fa-chevron-right"></i>
-              </div>
-            </a>
-
-            <a
-              href="https://drive.google.com/drive/folders/1kZOKU6zg5yybGqeUNtQJF3yXZfn6QLSY"
-              target="_blank"
-              class="course-item"
-            >
-              <div class="course-icon bg-gradient-5">
-                <i class="fa-solid fa-calculator"></i>
-              </div>
-              <div class="course-info">
-                <h3>MAE101</h3>
-                <p>Math for Engineering</p>
-                <div class="tags">
-                  <span class="badge-tag">Video Record</span>
-                </div>
-              </div>
-              <div class="course-action">
-                <i class="fa-solid fa-chevron-right"></i>
-              </div>
-            </a>
-          </div>
-        </div>
-
-        <!-- Kỳ II -->
-        <div
-          class="tab-pane fade"
-          id="ky2"
-          role="tabpanel"
-          aria-labelledby="ky2-tab"
-        >
-          <div class="course-list">
-            <a
-              href="https://drive.google.com/drive/folders/1SnFZI3ZkknJ53sevM8u2E6Br6GLk--TO"
-              target="_blank"
-              class="course-item"
-            >
-              <div class="course-icon bg-gradient-1">
-                <i class="fa-solid fa-desktop"></i>
-              </div>
-              <div class="course-info">
-                <h3>OSG202</h3>
-                <p>Operating System</p>
-                <div class="tags"><span class="badge-tag">Quizlet</span></div>
-              </div>
-              <div class="course-action">
-                <i class="fa-solid fa-chevron-right"></i>
-              </div>
-            </a>
-
-            <a
-              href="https://drive.google.com/drive/folders/1KhqWUK8EePrJNZe7r5ODY6VwgY5KKCTj"
-              target="_blank"
-              class="course-item"
-            >
-              <div class="course-icon bg-gradient-2">
-                <i class="fa-solid fa-network-wired"></i>
-              </div>
-              <div class="course-info">
-                <h3>NWC204</h3>
-                <p>Computer Networking</p>
-                <div class="tags">
-                  <span class="badge-tag">IT Exam Answers</span>
-                </div>
-              </div>
-              <div class="course-action">
-                <i class="fa-solid fa-chevron-right"></i>
-              </div>
-            </a>
-
-            <a
-              href="https://drive.google.com/drive/folders/1josVVY9FmeDwQRCLaSx8xe8slJh1cqn9"
-              target="_blank"
-              class="course-item"
-            >
-              <div class="course-icon bg-gradient-6">
-                <i class="fa-brands fa-java"></i>
-              </div>
-              <div class="course-info">
-                <h3>PRO192</h3>
-                <p>Java Object-Oriented Programming</p>
-                <div class="tags">
-                  <span class="badge-tag highlight-success">PE Trúng 80%</span>
-                  <span class="badge-tag">Đề PE & FE</span>
-                </div>
-              </div>
-              <div class="course-action">
-                <i class="fa-solid fa-chevron-right"></i>
-              </div>
-            </a>
-
-            <a
-              href="https://drive.google.com/drive/folders/1Svp1tWPyz_hEDjfkHgDO51NGMsL6YY_y"
-              target="_blank"
-              class="course-item"
-            >
-              <div class="course-icon bg-gradient-3">
-                <i class="fa-solid fa-globe"></i>
-              </div>
-              <div class="course-info">
-                <h3>WED201</h3>
-                <p>Web Design</p>
-                <div class="tags">
-                  <span class="badge-tag">Đề luyện PE</span>
-                </div>
-              </div>
-              <div class="course-action">
-                <i class="fa-solid fa-chevron-right"></i>
-              </div>
-            </a>
-
-            <a
-              href="https://drive.google.com/drive/folders/1251_3cKN-EcTK2yhM8dPd_BAQGeEcWci"
-              target="_blank"
-              class="course-item"
-            >
-              <div class="course-icon bg-gradient-4">
-                <i class="fa-solid fa-infinity"></i>
-              </div>
-              <div class="course-info">
-                <h3>MAD101</h3>
-                <p>Discrete Mathematics</p>
-                <div class="tags">
-                  <span class="badge-tag">Video Record</span>
-                </div>
-              </div>
-              <div class="course-action">
-                <i class="fa-solid fa-chevron-right"></i>
-              </div>
-            </a>
-          </div>
-        </div>
-
-        <!-- Kỳ III -->
-        <div
-          class="tab-pane fade"
-          id="ky3"
-          role="tabpanel"
-          aria-labelledby="ky3-tab"
-        >
-          <div class="course-list">
-            <a
-              href="https://drive.google.com/drive/folders/1lEHrMRgLxwsU76zl0yikJwB5agI4Bjyd"
-              target="_blank"
-              class="course-item"
-            >
-              <div class="course-icon bg-gradient-3">
-                <i class="fa-solid fa-chart-pie"></i>
-              </div>
-              <div class="course-info">
-                <h3>MAS291</h3>
-                <p>Statistics & Probability</p>
-                <div class="tags">
-                  <span class="badge-tag">Video khóa học</span>
-                  <span class="badge-tag">Giải đề bấm máy</span>
-                </div>
-              </div>
-              <div class="course-action">
-                <i class="fa-solid fa-chevron-right"></i>
-              </div>
-            </a>
-
-            <a
-              href="https://drive.google.com/drive/folders/18BTiHJJmmtOAuLrYFmv1B85sPk5XmA84"
-              target="_blank"
-              class="course-item"
-            >
-              <div class="course-icon bg-gradient-4">
-                <i class="fa-solid fa-sitemap"></i>
-              </div>
-              <div class="course-info">
-                <h3>CSD201</h3>
-                <p>Data Structures & Algorithms</p>
-                <div class="tags">
-                  <span class="badge-tag highlight-alert">PE / FE</span>
-                  <span class="badge-tag">Lớp Thầy Khanh</span>
-                </div>
-              </div>
-              <div class="course-action">
-                <i class="fa-solid fa-chevron-right"></i>
-              </div>
-            </a>
-
-            <a
-              href="https://drive.google.com/drive/folders/1SippPJ87j4Q4g2K7U5OomlaZB26KZJnt"
-              target="_blank"
-              class="course-item"
-            >
-              <div class="course-icon bg-gradient-2">
-                <i class="fa-solid fa-database"></i>
-              </div>
-              <div class="course-info">
-                <h3>DBI202</h3>
-                <p>Database Systems</p>
-                <div class="tags">
-                  <span class="badge-tag">PE Cô Dung</span>
-                  <span class="badge-tag">FE Tủ</span>
-                </div>
-              </div>
-              <div class="course-action">
-                <i class="fa-solid fa-chevron-right"></i>
-              </div>
-            </a>
-
-            <a
-              href="https://drive.google.com/drive/folders/1fvZUQlc9_oZ0hcDsJYTOXw5JJx_tZmHu"
-              target="_blank"
-              class="course-item"
-            >
-              <div class="course-icon bg-gradient-6">
-                <i class="fa-solid fa-flask"></i>
-              </div>
-              <div class="course-info">
-                <h3>Lab211</h3>
-                <p>OOP with Java Core Lab</p>
-                <div class="tags">
-                  <span class="badge-tag">Lớp Cô NgaCH</span>
-                </div>
-              </div>
-              <div class="course-action">
-                <i class="fa-solid fa-chevron-right"></i>
-              </div>
-            </a>
-
-            <a
-              href="https://drive.google.com/drive/folders/1YN3E0_hU8NaYebZrgeU9-ESij_k-Es7q"
-              target="_blank"
-              class="course-item"
-            >
-              <div class="course-icon bg-gradient-1">
-                <i class="fa-solid fa-language"></i>
-              </div>
-              <div class="course-info">
-                <h3>JPD113</h3>
-                <p>Elementary Japanese 1 (A1.1)</p>
-                <div class="tags">
-                  <span class="badge-tag">Bài thi nói</span>
-                </div>
-              </div>
-              <div class="course-action">
-                <i class="fa-solid fa-chevron-right"></i>
-              </div>
-            </a>
-          </div>
-        </div>
-
-        <!-- Kỳ IV -->
-        <div
-          class="tab-pane fade"
-          id="ky4"
-          role="tabpanel"
-          aria-labelledby="ky4-tab"
-        >
-          <div class="course-list">
-            <a
-              href="https://drive.google.com/drive/folders/1zh6K_ciGJqZ_nPWH_XFWp7DuLmwJeczH"
-              target="_blank"
-              class="course-item"
-            >
-              <div class="course-icon bg-gradient-2">
-                <i class="fa-solid fa-wifi"></i>
-              </div>
-              <div class="course-info">
-                <h3>IOT102</h3>
-                <p>Internet of Things</p>
-                <div class="tags">
-                  <span class="badge-tag highlight-success"
-                    >Source Hệ Thống Chống Trộm</span
-                  >
-                </div>
-              </div>
-              <div class="course-action">
-                <i class="fa-solid fa-chevron-right"></i>
-              </div>
-            </a>
-
-            <a
-              href="https://drive.google.com/drive/folders/1X6aS62v1LSj-npENYDfdetXwRo-cyLx3"
-              target="_blank"
-              class="course-item"
-            >
-              <div class="course-icon bg-gradient-6">
-                <i class="fa-brands fa-java"></i>
-              </div>
-              <div class="course-info">
-                <h3>PRJ301</h3>
-                <p>Java Web Application</p>
-                <div class="tags">
-                  <span class="badge-tag highlight-alert"
-                    >Thi vấn đáp & PE</span
-                  >
-                </div>
-              </div>
-              <div class="course-action">
-                <i class="fa-solid fa-chevron-right"></i>
-              </div>
-            </a>
-
-            <a
-              href="https://drive.google.com/drive/folders/1Z0ukQAMvPj5mM3EYjiSnGdgTqMlu4SJt"
-              target="_blank"
-              class="course-item"
-            >
-              <div class="course-icon bg-gradient-1">
-                <i class="fa-solid fa-language"></i>
-              </div>
-              <div class="course-info">
-                <h3>JPD123</h3>
-                <p>Japanese A1.2</p>
-                <div class="tags">
-                  <span class="badge-tag">Tài liệu Kaiwa</span>
-                </div>
-              </div>
-              <div class="course-action">
-                <i class="fa-solid fa-chevron-right"></i>
-              </div>
-            </a>
-
-            <a
-              href="https://drive.google.com/drive/folders/1r8gGCmjhQrtxg0LfR8_aS9VR8wPFUpmw"
-              target="_blank"
-              class="course-item"
-            >
-              <div class="course-icon bg-gradient-3">
-                <i class="fa-solid fa-users"></i>
-              </div>
-              <div class="course-info">
-                <h3>SSG104</h3>
-                <p>Communication & In-Group Working</p>
-                <div class="tags">
-                  <span class="badge-tag">Mẫu PPT Thuyết trình</span>
-                </div>
-              </div>
-              <div class="course-action">
-                <i class="fa-solid fa-chevron-right"></i>
-              </div>
-            </a>
-
-            <a
-              href="https://drive.google.com/drive/folders/1K2zzRnV_T50LEucRAUxakybn7jKDFnNB"
-              target="_blank"
-              class="course-item"
-            >
-              <div class="course-icon bg-gradient-4">
-                <i class="fa-solid fa-diagram-project"></i>
-              </div>
-              <div class="course-info">
-                <h3>SWE202c</h3>
-                <p>Intro to Software Engineering</p>
-                <div class="tags">
-                  <span class="badge-tag">Đề thi viết TA</span>
-                  <span class="badge-tag">Luyện MVC</span>
-                </div>
-              </div>
-              <div class="course-action">
-                <i class="fa-solid fa-chevron-right"></i>
-              </div>
-            </a>
-          </div>
-        </div>
-
-        <!-- Kỳ V -->
-        <div
-          class="tab-pane fade"
-          id="ky5"
-          role="tabpanel"
-          aria-labelledby="ky5-tab"
-        >
-          <div class="course-list">
-            <a
-              href="https://drive.google.com/drive/folders/1elmFCqB_LZgIY8XNOc23DR5RS2D1NniF"
-              target="_blank"
-              class="course-item"
-            >
-              <div class="course-icon bg-gradient-2">
-                <i class="fa-solid fa-clipboard-list"></i>
-              </div>
-              <div class="course-info">
-                <h3>SWR302</h3>
-                <p>Software Requirement</p>
-                <div class="tags">
-                  <span class="badge-tag highlight-success"
-                    >Tài liệu SRS & Use Case</span
-                  >
-                </div>
-              </div>
-              <div class="course-action">
-                <i class="fa-solid fa-chevron-right"></i>
-              </div>
-            </a>
-
-            <a
-              href="https://drive.google.com/drive/folders/1rzlLpnDawlN26bttj2oEHZKYkCY5TjO0"
-              target="_blank"
-              class="course-item"
-            >
-              <div class="course-icon bg-gradient-6">
-                <i class="fa-solid fa-cubes"></i>
-              </div>
-              <div class="course-info">
-                <h3>SWP391</h3>
-                <p>Software development project</p>
-                <div class="tags">
-                  <span class="badge-tag highlight-alert"
-                    >Báo cáo project hội đồng chấm ko thi PE/FE</span
-                  >
-                </div>
-              </div>
-              <div class="course-action">
-                <i class="fa-solid fa-chevron-right"></i>
-              </div>
-            </a>
-
-            <a
-              href="https://drive.google.com/drive/folders/114o4Pxwf7J5PJv4i_Hz22PBCOBC7F-wq"
-              target="_blank"
-              class="course-item"
-            >
-              <div class="course-icon bg-gradient-1">
-                <i class="fa-solid fa-bug"></i>
-              </div>
-              <div class="course-info">
-                <h3>SWT301</h3>
-                <p>Software Testing</p>
-                <div class="tags">
-                  <span class="badge-tag">Test Plan & TestCase</span>
-                  <span class="badge-tag highlight-alert"
-                    >Thi PE Junit/TestNG</span
-                  >
-                </div>
-              </div>
-              <div class="course-action">
-                <i class="fa-solid fa-chevron-right"></i>
-              </div>
-            </a>
-
-            <a
-              href="https://drive.google.com/drive/folders/11gHmv1mCbua0StrRYC60qaOQZkczFBgD"
-              target="_blank"
-              class="course-item"
-            >
-              <div class="course-icon bg-gradient-3">
-                <i class="fa-solid fa-palette"></i>
-              </div>
-              <div class="course-info">
-                <h3>WDU203c</h3>
-                <p>UI/UX Design</p>
-                <div class="tags">
-                  <span class="badge-tag">Figma Design</span>
-                  <span class="badge-tag">Wireframe</span>
-                </div>
-              </div>
-              <div class="course-action">
-                <i class="fa-solid fa-chevron-right"></i>
-              </div>
-            </a>
-
-            <a
-              href="https://drive.google.com/drive/folders/142eOmh4ZwsLjlit39K-sq5dF2uzvuQqr"
-              target="_blank"
-              class="course-item"
-            >
-              <div class="course-icon bg-gradient-4">
-                <i class="fa-solid fa-leaf"></i>
-              </div>
-              <div class="course-info">
-                <h3>HSF302</h3>
-                <p>Working with Spring Framework</p>
-                <div class="tags">
-                  <span class="badge-tag highlight-alert"
-                    >Thực hành Spring Boot</span
-                  >
-                  <span class="badge-tag">RESTful API</span>
-                </div>
-              </div>
-              <div class="course-action">
-                <i class="fa-solid fa-chevron-right"></i>
-              </div>
-            </a>
-
-            <a
-              href="https://drive.google.com/drive/folders/1do5XGFEOkjaNDnDgTTr3ypCoqgOLYUK_"
-              target="_blank"
-              class="course-item"
-            >
-              <div class="course-icon bg-gradient-2">
-                <i class="fa-brands fa-react"></i>
-              </div>
-              <div class="course-info">
-                <h3>FER202</h3>
-                <p>Front-End web development with React</p>
-                <div class="tags">
-                  <span class="badge-tag highlight-success">React Hooks</span>
-                  <span class="badge-tag highlight-alert">Đề thi PE Web</span>
-                </div>
-              </div>
-              <div class="course-action">
-                <i class="fa-solid fa-chevron-right"></i>
-              </div>
-            </a>
-          </div>
-        </div>
-        <!-- Kỳ VI -->
-        <div
-          class="tab-pane fade"
-          id="ky6"
-          role="tabpanel"
-          aria-labelledby="ky6-tab"
-        >
-          <div class="course-list">
-            <div class="course-item course-item-coming">
-              <div class="course-icon bg-gradient-2">
-                <i class="fa-solid fa-briefcase"></i>
-              </div>
-              <div class="course-info">
-                <h3>OJT202</h3>
-                <p>On-The-Job Training</p>
-                <div class="tags"><span class="badge-tag">Internship</span></div>
-              </div>
-              <div class="course-action"><i class="fa-solid fa-clock"></i></div>
-            </div>
-
-            <div class="course-item course-item-coming">
-              <div class="course-icon bg-gradient-1">
-                <i class="fa-solid fa-pen-nib"></i>
-              </div>
-              <div class="course-info">
-                <h3>ENW493c</h3>
-                <p>Research Method and Academic Writing Skills</p>
-                <div class="tags"><span class="badge-tag">Writing</span></div>
-              </div>
-              <div class="course-action"><i class="fa-solid fa-clock"></i></div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Kỳ VII -->
-        <div
-          class="tab-pane fade"
-          id="ky7"
-          role="tabpanel"
-          aria-labelledby="ky7-tab"
-        >
-          <div class="course-list">
-            <div class="course-item course-item-coming">
-              <div class="course-icon bg-gradient-4">
-                <i class="fa-solid fa-layer-group"></i>
-              </div>
-              <div class="course-info">
-                <h3>SBA301</h3>
-                <p>Integrate Single Page Application with Spring Boot</p>
-                <div class="tags"><span class="badge-tag">Spring Boot</span> <span class="badge-tag">SPA</span></div>
-              </div>
-              <div class="course-action"><i class="fa-solid fa-clock"></i></div>
-            </div>
-
-            <div class="course-item course-item-coming">
-              <div class="course-icon bg-gradient-5">
-                <i class="fa-solid fa-lightbulb"></i>
-              </div>
-              <div class="course-info">
-                <h3>EXE101</h3>
-                <p>Experiential Entrepreneurship 1</p>
-                <div class="tags"><span class="badge-tag">Entrepreneurship</span></div>
-              </div>
-              <div class="course-action"><i class="fa-solid fa-clock"></i></div>
-            </div>
-
-            <div class="course-item course-item-coming">
-              <div class="course-icon bg-gradient-3">
-                <i class="fa-solid fa-list-check"></i>
-              </div>
-              <div class="course-info">
-                <h3>PMG201c</h3>
-                <p>Project Management</p>
-                <div class="tags"><span class="badge-tag">Management</span></div>
-              </div>
-              <div class="course-action"><i class="fa-solid fa-clock"></i></div>
-            </div>
-
-            <div class="course-item course-item-coming">
-              <div class="course-icon bg-gradient-2">
-                <i class="fa-solid fa-diagram-project"></i>
-              </div>
-              <div class="course-info">
-                <h3>SWD392</h3>
-                <p>Software Architecture and Design</p>
-                <div class="tags"><span class="badge-tag">Architecture</span></div>
-              </div>
-              <div class="course-action"><i class="fa-solid fa-clock"></i></div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Kỳ VIII -->
-        <div
-          class="tab-pane fade"
-          id="ky8"
-          role="tabpanel"
-          aria-labelledby="ky8-tab"
-        >
-          <div class="course-list">
-            <div class="course-item course-item-coming">
-              <div class="course-icon bg-gradient-6">
-                <i class="fa-solid fa-landmark"></i>
-              </div>
-              <div class="course-info">
-                <h3>MLN122</h3>
-                <p>Political Economics of Marxism - Leninism</p>
-                <div class="tags"><span class="badge-tag">Political Economics</span></div>
-              </div>
-              <div class="course-action"><i class="fa-solid fa-clock"></i></div>
-            </div>
-
-            <div class="course-item course-item-coming">
-              <div class="course-icon bg-gradient-5">
-                <i class="fa-solid fa-rocket"></i>
-              </div>
-              <div class="course-info">
-                <h3>EXE201</h3>
-                <p>Experiential Entrepreneurship 2</p>
-                <div class="tags"><span class="badge-tag">Entrepreneurship</span></div>
-              </div>
-              <div class="course-action"><i class="fa-solid fa-clock"></i></div>
-            </div>
-
-            <div class="course-item course-item-coming">
-              <div class="course-icon bg-gradient-1">
-                <i class="fa-solid fa-book"></i>
-              </div>
-              <div class="course-info">
-                <h3>MLN111</h3>
-                <p>Philosophy of Marxism - Leninism</p>
-                <div class="tags"><span class="badge-tag">Philosophy</span></div>
-              </div>
-              <div class="course-action"><i class="fa-solid fa-clock"></i></div>
-            </div>
-
-            <div class="course-item course-item-coming">
-              <div class="course-icon bg-gradient-3">
-                <i class="fa-solid fa-shield-halved"></i>
-              </div>
-              <div class="course-info">
-                <h3>ITE302c</h3>
-                <p>Ethics in IT</p>
-                <div class="tags"><span class="badge-tag">Ethics</span></div>
-              </div>
-              <div class="course-action"><i class="fa-solid fa-clock"></i></div>
-            </div>
-
-            <div class="course-item course-item-coming">
-              <div class="course-icon bg-gradient-2">
-                <i class="fa-solid fa-cloud"></i>
-              </div>
-              <div class="course-info">
-                <h3>MSS301</h3>
-                <p>Microservices with Spring Cloud</p>
-                <div class="tags"><span class="badge-tag">Microservices</span> <span class="badge-tag">Spring Cloud</span></div>
-              </div>
-              <div class="course-action"><i class="fa-solid fa-clock"></i></div>
-            </div>
-
-            <div class="course-item course-item-coming">
-              <div class="course-icon bg-gradient-4">
-                <i class="fa-solid fa-mobile-screen-button"></i>
-              </div>
-              <div class="course-info">
-                <h3>PRM393</h3>
-                <p>Mobile Programming</p>
-                <div class="tags"><span class="badge-tag">Mobile</span></div>
-              </div>
-              <div class="course-action"><i class="fa-solid fa-clock"></i></div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Kỳ IX -->
-        <div
-          class="tab-pane fade"
-          id="ky9"
-          role="tabpanel"
-          aria-labelledby="ky9-tab"
-        >
-          <div class="course-list">
-            <div class="course-item course-item-coming">
-              <div class="course-icon bg-gradient-1">
-                <i class="fa-solid fa-flag"></i>
-              </div>
-              <div class="course-info">
-                <h3>VNR202</h3>
-                <p>History of CPV</p>
-                <div class="tags"><span class="badge-tag">History</span></div>
-              </div>
-              <div class="course-action"><i class="fa-solid fa-clock"></i></div>
-            </div>
-
-            <div class="course-item course-item-coming">
-              <div class="course-icon bg-gradient-6">
-                <i class="fa-solid fa-users"></i>
-              </div>
-              <div class="course-info">
-                <h3>MLN131</h3>
-                <p>Scientific Socialism</p>
-                <div class="tags"><span class="badge-tag">Socialism</span></div>
-              </div>
-              <div class="course-action"><i class="fa-solid fa-clock"></i></div>
-            </div>
-
-            <div class="course-item course-item-coming">
-              <div class="course-icon bg-gradient-4">
-                <i class="fa-solid fa-graduation-cap"></i>
-              </div>
-              <div class="course-info">
-                <h3>SE_GRA_ELE</h3>
-                <p>Graduation Elective - Software Engineering</p>
-                <div class="tags"><span class="badge-tag">Graduation</span></div>
-              </div>
-              <div class="course-action"><i class="fa-solid fa-clock"></i></div>
-            </div>
-
-            <div class="course-item course-item-coming">
-              <div class="course-icon bg-gradient-3">
-                <i class="fa-solid fa-star"></i>
-              </div>
-              <div class="course-info">
-                <h3>HCM202</h3>
-                <p>HCM Ideology</p>
-                <div class="tags"><span class="badge-tag">Ideology</span></div>
-              </div>
-              <div class="course-action"><i class="fa-solid fa-clock"></i></div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </main>
-
-    <footer>
-      <div class="social-icons">
-        <a
-          href="https://www.facebook.com/tien.thuong.674774"
-          class="social-link"
-          target="_blank"
-          ><i class="fab fa-facebook-f"></i
-        ></a>
-        <a
-          href="https://github.com/ThuongNT-ktpm"
-          class="social-link"
-          target="_blank"
-          ><i class="fab fa-github"></i
-        ></a>
-        <a href="mailto:" class="social-link" aria-label="Email"
-          ><i class="fas fa-envelope"></i
-        ></a>
-        <a
-          href="https://www.tiktok.com/@tin.thng49"
-          class="social-link"
-          target="_blank"
-          ><i class="fab fa-tiktok"></i
-        ></a>
-      </div>
-      <p class="copyright">
-        © 2024 Nguyen Tien Thuong & Phan Nhat Cuong. Built with ❤️.
-      </p>
-    </footer>
-
-    <button id="back-to-top" type="button" aria-label="Lên đầu trang">
-      <i class="fa-solid fa-arrow-up"></i>
-    </button>
-
-    <div id="toast-root" class="toast-root" aria-live="polite"></div>
-
-    <div id="course-modal" class="course-modal" aria-hidden="true">
-      <div class="modal-card" role="dialog" aria-modal="true" aria-label="Chi tiết môn học">
-        <button id="course-modal-close" type="button" class="modal-close" aria-label="Đóng">
+  <main class="container">
+    <section class="resource-toolbar" aria-label="Tìm kiếm và lọc tài liệu">
+      <div class="search-box">
+        <i class="fa-solid fa-magnifying-glass"></i>
+        <input id="course-search" type="search" placeholder="Tìm môn, mã môn, PE, Quizlet, React..." autocomplete="off"
+          aria-label="Tìm kiếm tài liệu" />
+        <button id="clear-search" type="button" aria-label="Xóa tìm kiếm">
           <i class="fa-solid fa-xmark"></i>
         </button>
-        <div id="course-modal-body"></div>
       </div>
+    </section>
+
+    <!-- Tabs Navigation (9 Semesters) -->
+    <div class="semester-tabs-container sticky-tabs">
+      <ul class="nav nav-pills semester-tabs" id="semester-tab" role="tablist">
+        <li class="nav-item">
+          <a class="nav-link active" id="ky1-tab" data-toggle="pill" href="#ky1" role="tab" aria-controls="ky1"
+            aria-selected="true">Kỳ I</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" id="ky2-tab" data-toggle="pill" href="#ky2" role="tab" aria-controls="ky2"
+            aria-selected="false">Kỳ II</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" id="ky3-tab" data-toggle="pill" href="#ky3" role="tab" aria-controls="ky3"
+            aria-selected="false">Kỳ III</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" id="ky4-tab" data-toggle="pill" href="#ky4" role="tab" aria-controls="ky4"
+            aria-selected="false">Kỳ IV</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" id="ky5-tab" data-toggle="pill" href="#ky5" role="tab" aria-controls="ky5"
+            aria-selected="false">Kỳ V</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" id="ky6-tab" data-toggle="pill" href="#ky6" role="tab" aria-controls="ky6"
+            aria-selected="false">Kỳ VI</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" id="ky7-tab" data-toggle="pill" href="#ky7" role="tab" aria-controls="ky7"
+            aria-selected="false">Kỳ VII</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" id="ky8-tab" data-toggle="pill" href="#ky8" role="tab" aria-controls="ky8"
+            aria-selected="false">Kỳ VIII</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" id="ky9-tab" data-toggle="pill" href="#ky9" role="tab" aria-controls="ky9"
+            aria-selected="false">Kỳ IX</a>
+        </li>
+      </ul>
     </div>
 
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
-    <script src="js/hihi.js?v=2"></script>
-  </body>
+    <!-- Tabs Content -->
+    <div class="tab-content" id="semester-tabContent">
+      <!-- Kỳ I -->
+      <div class="tab-pane fade show active" id="ky1" role="tabpanel" aria-labelledby="ky1-tab">
+        <div class="course-list">
+          <a href="https://drive.google.com/drive/folders/1A5p7HeSchMoDST7UnNDJR0n5P5BmUSJO" target="_blank"
+            class="course-item">
+            <div class="course-icon bg-gradient-1">
+              <i class="fa-solid fa-book-open"></i>
+            </div>
+            <div class="course-info">
+              <h3>SSLc</h3>
+              <p>Academic Skills</p>
+              <div class="tags">
+                <span class="badge-tag">Đề thi kì trước</span>
+                <span class="badge-tag">Môn lý thuyết</span>
+              </div>
+            </div>
+            <div class="course-action">
+              <i class="fa-solid fa-chevron-right"></i>
+            </div>
+          </a>
+
+          <a href="https://quizlet.com/vn/1013609232/cea201-thw-flash-cards" target="_blank" class="course-item">
+            <div class="course-icon bg-gradient-2">
+              <i class="fa-solid fa-microchip"></i>
+            </div>
+            <div class="course-info">
+              <h3>CEA201</h3>
+              <p>Computer Architecture</p>
+              <div class="tags"><span class="badge-tag">Quizlet</span></div>
+            </div>
+            <div class="course-action">
+              <i class="fa-solid fa-chevron-right"></i>
+            </div>
+          </a>
+
+          <a href="https://quizlet.com/vn/1013609839/csi106-thw-flash-cards" target="_blank" class="course-item">
+            <div class="course-icon bg-gradient-3">
+              <i class="fa-solid fa-laptop-code"></i>
+            </div>
+            <div class="course-info">
+              <h3>CSI106</h3>
+              <p>Intro to Computer Science</p>
+              <div class="tags"><span class="badge-tag">Quizlet</span></div>
+            </div>
+            <div class="course-action">
+              <i class="fa-solid fa-chevron-right"></i>
+            </div>
+          </a>
+
+          <a href="https://drive.google.com/drive/folders/16TuM6waqPJNRLRfD4wecYr036zttdqNg" target="_blank"
+            class="course-item">
+            <div class="course-icon bg-gradient-4">
+              <i class="fa-solid fa-code"></i>
+            </div>
+            <div class="course-info">
+              <h3>PRF192</h3>
+              <p>Programming Fundamentals (C)</p>
+              <div class="tags">
+                <span class="badge-tag highlight-alert">Cẩn thận PE</span>
+                <span class="badge-tag">PE Copy</span>
+              </div>
+            </div>
+            <div class="course-action">
+              <i class="fa-solid fa-chevron-right"></i>
+            </div>
+          </a>
+
+          <a href="https://drive.google.com/drive/folders/1kZOKU6zg5yybGqeUNtQJF3yXZfn6QLSY" target="_blank"
+            class="course-item">
+            <div class="course-icon bg-gradient-5">
+              <i class="fa-solid fa-calculator"></i>
+            </div>
+            <div class="course-info">
+              <h3>MAE101</h3>
+              <p>Math for Engineering</p>
+              <div class="tags">
+                <span class="badge-tag">Video Record</span>
+              </div>
+            </div>
+            <div class="course-action">
+              <i class="fa-solid fa-chevron-right"></i>
+            </div>
+          </a>
+        </div>
+      </div>
+
+      <!-- Kỳ II -->
+      <div class="tab-pane fade" id="ky2" role="tabpanel" aria-labelledby="ky2-tab">
+        <div class="course-list">
+          <a href="https://drive.google.com/drive/folders/1SnFZI3ZkknJ53sevM8u2E6Br6GLk--TO" target="_blank"
+            class="course-item">
+            <div class="course-icon bg-gradient-1">
+              <i class="fa-solid fa-desktop"></i>
+            </div>
+            <div class="course-info">
+              <h3>OSG202</h3>
+              <p>Operating System</p>
+              <div class="tags"><span class="badge-tag">Quizlet</span></div>
+            </div>
+            <div class="course-action">
+              <i class="fa-solid fa-chevron-right"></i>
+            </div>
+          </a>
+
+          <a href="https://drive.google.com/drive/folders/1KhqWUK8EePrJNZe7r5ODY6VwgY5KKCTj" target="_blank"
+            class="course-item">
+            <div class="course-icon bg-gradient-2">
+              <i class="fa-solid fa-network-wired"></i>
+            </div>
+            <div class="course-info">
+              <h3>NWC204</h3>
+              <p>Computer Networking</p>
+              <div class="tags">
+                <span class="badge-tag">IT Exam Answers</span>
+              </div>
+            </div>
+            <div class="course-action">
+              <i class="fa-solid fa-chevron-right"></i>
+            </div>
+          </a>
+
+          <a href="https://drive.google.com/drive/folders/1josVVY9FmeDwQRCLaSx8xe8slJh1cqn9" target="_blank"
+            class="course-item">
+            <div class="course-icon bg-gradient-6">
+              <i class="fa-brands fa-java"></i>
+            </div>
+            <div class="course-info">
+              <h3>PRO192</h3>
+              <p>Java Object-Oriented Programming</p>
+              <div class="tags">
+                <span class="badge-tag highlight-success">PE Trúng 80%</span>
+                <span class="badge-tag">Đề PE & FE</span>
+              </div>
+            </div>
+            <div class="course-action">
+              <i class="fa-solid fa-chevron-right"></i>
+            </div>
+          </a>
+
+          <a href="https://drive.google.com/drive/folders/1Svp1tWPyz_hEDjfkHgDO51NGMsL6YY_y" target="_blank"
+            class="course-item">
+            <div class="course-icon bg-gradient-3">
+              <i class="fa-solid fa-globe"></i>
+            </div>
+            <div class="course-info">
+              <h3>WED201</h3>
+              <p>Web Design</p>
+              <div class="tags">
+                <span class="badge-tag">Đề luyện PE</span>
+              </div>
+            </div>
+            <div class="course-action">
+              <i class="fa-solid fa-chevron-right"></i>
+            </div>
+          </a>
+
+          <a href="https://drive.google.com/drive/folders/1251_3cKN-EcTK2yhM8dPd_BAQGeEcWci" target="_blank"
+            class="course-item">
+            <div class="course-icon bg-gradient-4">
+              <i class="fa-solid fa-infinity"></i>
+            </div>
+            <div class="course-info">
+              <h3>MAD101</h3>
+              <p>Discrete Mathematics</p>
+              <div class="tags">
+                <span class="badge-tag">Video Record</span>
+              </div>
+            </div>
+            <div class="course-action">
+              <i class="fa-solid fa-chevron-right"></i>
+            </div>
+          </a>
+        </div>
+      </div>
+
+      <!-- Kỳ III -->
+      <div class="tab-pane fade" id="ky3" role="tabpanel" aria-labelledby="ky3-tab">
+        <div class="course-list">
+          <a href="https://drive.google.com/drive/folders/1lEHrMRgLxwsU76zl0yikJwB5agI4Bjyd" target="_blank"
+            class="course-item">
+            <div class="course-icon bg-gradient-3">
+              <i class="fa-solid fa-chart-pie"></i>
+            </div>
+            <div class="course-info">
+              <h3>MAS291</h3>
+              <p>Statistics & Probability</p>
+              <div class="tags">
+                <span class="badge-tag">Video khóa học</span>
+                <span class="badge-tag">Giải đề bấm máy</span>
+              </div>
+            </div>
+            <div class="course-action">
+              <i class="fa-solid fa-chevron-right"></i>
+            </div>
+          </a>
+
+          <a href="https://drive.google.com/drive/folders/18BTiHJJmmtOAuLrYFmv1B85sPk5XmA84" target="_blank"
+            class="course-item">
+            <div class="course-icon bg-gradient-4">
+              <i class="fa-solid fa-sitemap"></i>
+            </div>
+            <div class="course-info">
+              <h3>CSD201</h3>
+              <p>Data Structures & Algorithms</p>
+              <div class="tags">
+                <span class="badge-tag highlight-alert">PE / FE</span>
+                <span class="badge-tag">Lớp Thầy Khanh</span>
+              </div>
+            </div>
+            <div class="course-action">
+              <i class="fa-solid fa-chevron-right"></i>
+            </div>
+          </a>
+
+          <a href="https://drive.google.com/drive/folders/1SippPJ87j4Q4g2K7U5OomlaZB26KZJnt" target="_blank"
+            class="course-item">
+            <div class="course-icon bg-gradient-2">
+              <i class="fa-solid fa-database"></i>
+            </div>
+            <div class="course-info">
+              <h3>DBI202</h3>
+              <p>Database Systems</p>
+              <div class="tags">
+                <span class="badge-tag">PE Cô Dung</span>
+                <span class="badge-tag">FE Tủ</span>
+              </div>
+            </div>
+            <div class="course-action">
+              <i class="fa-solid fa-chevron-right"></i>
+            </div>
+          </a>
+
+          <a href="https://drive.google.com/drive/folders/1fvZUQlc9_oZ0hcDsJYTOXw5JJx_tZmHu" target="_blank"
+            class="course-item">
+            <div class="course-icon bg-gradient-6">
+              <i class="fa-solid fa-flask"></i>
+            </div>
+            <div class="course-info">
+              <h3>Lab211</h3>
+              <p>OOP with Java Core Lab</p>
+              <div class="tags">
+                <span class="badge-tag">Lớp Cô NgaCH</span>
+              </div>
+            </div>
+            <div class="course-action">
+              <i class="fa-solid fa-chevron-right"></i>
+            </div>
+          </a>
+
+          <a href="https://drive.google.com/drive/folders/1YN3E0_hU8NaYebZrgeU9-ESij_k-Es7q" target="_blank"
+            class="course-item">
+            <div class="course-icon bg-gradient-1">
+              <i class="fa-solid fa-language"></i>
+            </div>
+            <div class="course-info">
+              <h3>JPD113</h3>
+              <p>Elementary Japanese 1 (A1.1)</p>
+              <div class="tags">
+                <span class="badge-tag">Bài thi nói</span>
+              </div>
+            </div>
+            <div class="course-action">
+              <i class="fa-solid fa-chevron-right"></i>
+            </div>
+          </a>
+        </div>
+      </div>
+
+      <!-- Kỳ IV -->
+      <div class="tab-pane fade" id="ky4" role="tabpanel" aria-labelledby="ky4-tab">
+        <div class="course-list">
+          <a href="https://drive.google.com/drive/folders/1zh6K_ciGJqZ_nPWH_XFWp7DuLmwJeczH" target="_blank"
+            class="course-item">
+            <div class="course-icon bg-gradient-2">
+              <i class="fa-solid fa-wifi"></i>
+            </div>
+            <div class="course-info">
+              <h3>IOT102</h3>
+              <p>Internet of Things</p>
+              <div class="tags">
+                <span class="badge-tag highlight-success">Source Hệ Thống Chống Trộm</span>
+              </div>
+            </div>
+            <div class="course-action">
+              <i class="fa-solid fa-chevron-right"></i>
+            </div>
+          </a>
+
+          <a href="https://drive.google.com/drive/folders/1X6aS62v1LSj-npENYDfdetXwRo-cyLx3" target="_blank"
+            class="course-item">
+            <div class="course-icon bg-gradient-6">
+              <i class="fa-brands fa-java"></i>
+            </div>
+            <div class="course-info">
+              <h3>PRJ301</h3>
+              <p>Java Web Application</p>
+              <div class="tags">
+                <span class="badge-tag highlight-alert">Thi vấn đáp & PE</span>
+              </div>
+            </div>
+            <div class="course-action">
+              <i class="fa-solid fa-chevron-right"></i>
+            </div>
+          </a>
+
+          <a href="https://drive.google.com/drive/folders/1Z0ukQAMvPj5mM3EYjiSnGdgTqMlu4SJt" target="_blank"
+            class="course-item">
+            <div class="course-icon bg-gradient-1">
+              <i class="fa-solid fa-language"></i>
+            </div>
+            <div class="course-info">
+              <h3>JPD123</h3>
+              <p>Japanese A1.2</p>
+              <div class="tags">
+                <span class="badge-tag">Tài liệu Kaiwa</span>
+              </div>
+            </div>
+            <div class="course-action">
+              <i class="fa-solid fa-chevron-right"></i>
+            </div>
+          </a>
+
+          <a href="https://drive.google.com/drive/folders/1r8gGCmjhQrtxg0LfR8_aS9VR8wPFUpmw" target="_blank"
+            class="course-item">
+            <div class="course-icon bg-gradient-3">
+              <i class="fa-solid fa-users"></i>
+            </div>
+            <div class="course-info">
+              <h3>SSG104</h3>
+              <p>Communication & In-Group Working</p>
+              <div class="tags">
+                <span class="badge-tag">Mẫu PPT Thuyết trình</span>
+              </div>
+            </div>
+            <div class="course-action">
+              <i class="fa-solid fa-chevron-right"></i>
+            </div>
+          </a>
+
+          <a href="https://drive.google.com/drive/folders/1K2zzRnV_T50LEucRAUxakybn7jKDFnNB" target="_blank"
+            class="course-item">
+            <div class="course-icon bg-gradient-4">
+              <i class="fa-solid fa-diagram-project"></i>
+            </div>
+            <div class="course-info">
+              <h3>SWE202c</h3>
+              <p>Intro to Software Engineering</p>
+              <div class="tags">
+                <span class="badge-tag">Đề thi viết TA</span>
+                <span class="badge-tag">Luyện MVC</span>
+              </div>
+            </div>
+            <div class="course-action">
+              <i class="fa-solid fa-chevron-right"></i>
+            </div>
+          </a>
+        </div>
+      </div>
+
+      <!-- Kỳ V -->
+      <div class="tab-pane fade" id="ky5" role="tabpanel" aria-labelledby="ky5-tab">
+        <div class="course-list">
+          <a href="https://drive.google.com/drive/folders/1elmFCqB_LZgIY8XNOc23DR5RS2D1NniF" target="_blank"
+            class="course-item">
+            <div class="course-icon bg-gradient-2">
+              <i class="fa-solid fa-clipboard-list"></i>
+            </div>
+            <div class="course-info">
+              <h3>SWR302</h3>
+              <p>Software Requirement</p>
+              <div class="tags">
+                <span class="badge-tag highlight-success">Tài liệu SRS & Use Case</span>
+              </div>
+            </div>
+            <div class="course-action">
+              <i class="fa-solid fa-chevron-right"></i>
+            </div>
+          </a>
+
+          <a href="https://drive.google.com/drive/folders/1rzlLpnDawlN26bttj2oEHZKYkCY5TjO0" target="_blank"
+            class="course-item">
+            <div class="course-icon bg-gradient-6">
+              <i class="fa-solid fa-cubes"></i>
+            </div>
+            <div class="course-info">
+              <h3>SWP391</h3>
+              <p>Software development project</p>
+              <div class="tags">
+                <span class="badge-tag highlight-alert">Báo cáo project hội đồng chấm ko thi PE/FE</span>
+              </div>
+            </div>
+            <div class="course-action">
+              <i class="fa-solid fa-chevron-right"></i>
+            </div>
+          </a>
+
+          <a href="https://drive.google.com/drive/folders/114o4Pxwf7J5PJv4i_Hz22PBCOBC7F-wq" target="_blank"
+            class="course-item">
+            <div class="course-icon bg-gradient-1">
+              <i class="fa-solid fa-bug"></i>
+            </div>
+            <div class="course-info">
+              <h3>SWT301</h3>
+              <p>Software Testing</p>
+              <div class="tags">
+                <span class="badge-tag">Test Plan & TestCase</span>
+                <span class="badge-tag highlight-alert">Thi PE Junit/TestNG</span>
+              </div>
+            </div>
+            <div class="course-action">
+              <i class="fa-solid fa-chevron-right"></i>
+            </div>
+          </a>
+
+          <a href="https://drive.google.com/drive/folders/11gHmv1mCbua0StrRYC60qaOQZkczFBgD" target="_blank"
+            class="course-item">
+            <div class="course-icon bg-gradient-3">
+              <i class="fa-solid fa-palette"></i>
+            </div>
+            <div class="course-info">
+              <h3>WDU203c</h3>
+              <p>UI/UX Design</p>
+              <div class="tags">
+                <span class="badge-tag">Figma Design</span>
+                <span class="badge-tag">Wireframe</span>
+              </div>
+            </div>
+            <div class="course-action">
+              <i class="fa-solid fa-chevron-right"></i>
+            </div>
+          </a>
+
+          <a href="https://drive.google.com/drive/folders/142eOmh4ZwsLjlit39K-sq5dF2uzvuQqr" target="_blank"
+            class="course-item">
+            <div class="course-icon bg-gradient-4">
+              <i class="fa-solid fa-leaf"></i>
+            </div>
+            <div class="course-info">
+              <h3>HSF302</h3>
+              <p>Working with Spring Framework</p>
+              <div class="tags">
+                <span class="badge-tag highlight-alert">Thực hành Spring Boot</span>
+                <span class="badge-tag">RESTful API</span>
+              </div>
+            </div>
+            <div class="course-action">
+              <i class="fa-solid fa-chevron-right"></i>
+            </div>
+          </a>
+
+          <a href="https://drive.google.com/drive/folders/1do5XGFEOkjaNDnDgTTr3ypCoqgOLYUK_" target="_blank"
+            class="course-item">
+            <div class="course-icon bg-gradient-2">
+              <i class="fa-brands fa-react"></i>
+            </div>
+            <div class="course-info">
+              <h3>FER202</h3>
+              <p>Front-End web development with React</p>
+              <div class="tags">
+                <span class="badge-tag highlight-success">React Hooks</span>
+                <span class="badge-tag highlight-alert">Đề thi PE Web</span>
+              </div>
+            </div>
+            <div class="course-action">
+              <i class="fa-solid fa-chevron-right"></i>
+            </div>
+          </a>
+        </div>
+      </div>
+      <!-- Kỳ VI -->
+      <div class="tab-pane fade" id="ky6" role="tabpanel" aria-labelledby="ky6-tab">
+        <div class="course-list">
+          <div class="course-item course-item-coming">
+            <div class="course-icon bg-gradient-2">
+              <i class="fa-solid fa-briefcase"></i>
+            </div>
+            <div class="course-info">
+              <h3>OJT202</h3>
+              <p>On-The-Job Training</p>
+              <div class="tags"><span class="badge-tag">Internship</span></div>
+            </div>
+            <div class="course-action"><i class="fa-solid fa-clock"></i></div>
+          </div>
+
+          <div class="course-item course-item-coming">
+            <div class="course-icon bg-gradient-1">
+              <i class="fa-solid fa-pen-nib"></i>
+            </div>
+            <div class="course-info">
+              <h3>ENW493c</h3>
+              <p>Research Method and Academic Writing Skills</p>
+              <div class="tags"><span class="badge-tag">Writing</span></div>
+            </div>
+            <div class="course-action"><i class="fa-solid fa-clock"></i></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Kỳ VII -->
+      <div class="tab-pane fade" id="ky7" role="tabpanel" aria-labelledby="ky7-tab">
+        <div class="course-list">
+          <div class="course-item course-item-coming">
+            <div class="course-icon bg-gradient-4">
+              <i class="fa-solid fa-layer-group"></i>
+            </div>
+            <div class="course-info">
+              <h3>SBA301</h3>
+              <p>Integrate Single Page Application with Spring Boot</p>
+              <div class="tags"><span class="badge-tag">Spring Boot</span> <span class="badge-tag">SPA</span></div>
+            </div>
+            <div class="course-action"><i class="fa-solid fa-clock"></i></div>
+          </div>
+
+          <div class="course-item course-item-coming">
+            <div class="course-icon bg-gradient-5">
+              <i class="fa-solid fa-lightbulb"></i>
+            </div>
+            <div class="course-info">
+              <h3>EXE101</h3>
+              <p>Experiential Entrepreneurship 1</p>
+              <div class="tags"><span class="badge-tag">Entrepreneurship</span></div>
+            </div>
+            <div class="course-action"><i class="fa-solid fa-clock"></i></div>
+          </div>
+
+          <div class="course-item course-item-coming">
+            <div class="course-icon bg-gradient-3">
+              <i class="fa-solid fa-list-check"></i>
+            </div>
+            <div class="course-info">
+              <h3>PMG201c</h3>
+              <p>Project Management</p>
+              <div class="tags"><span class="badge-tag">Management</span></div>
+            </div>
+            <div class="course-action"><i class="fa-solid fa-clock"></i></div>
+          </div>
+
+          <div class="course-item course-item-coming">
+            <div class="course-icon bg-gradient-2">
+              <i class="fa-solid fa-diagram-project"></i>
+            </div>
+            <div class="course-info">
+              <h3>SWD392</h3>
+              <p>Software Architecture and Design</p>
+              <div class="tags"><span class="badge-tag">Architecture</span></div>
+            </div>
+            <div class="course-action"><i class="fa-solid fa-clock"></i></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Kỳ VIII -->
+      <div class="tab-pane fade" id="ky8" role="tabpanel" aria-labelledby="ky8-tab">
+        <div class="course-list">
+          <div class="course-item course-item-coming">
+            <div class="course-icon bg-gradient-6">
+              <i class="fa-solid fa-landmark"></i>
+            </div>
+            <div class="course-info">
+              <h3>MLN122</h3>
+              <p>Political Economics of Marxism - Leninism</p>
+              <div class="tags"><span class="badge-tag">Political Economics</span></div>
+            </div>
+            <div class="course-action"><i class="fa-solid fa-clock"></i></div>
+          </div>
+
+          <div class="course-item course-item-coming">
+            <div class="course-icon bg-gradient-5">
+              <i class="fa-solid fa-rocket"></i>
+            </div>
+            <div class="course-info">
+              <h3>EXE201</h3>
+              <p>Experiential Entrepreneurship 2</p>
+              <div class="tags"><span class="badge-tag">Entrepreneurship</span></div>
+            </div>
+            <div class="course-action"><i class="fa-solid fa-clock"></i></div>
+          </div>
+
+          <div class="course-item course-item-coming">
+            <div class="course-icon bg-gradient-1">
+              <i class="fa-solid fa-book"></i>
+            </div>
+            <div class="course-info">
+              <h3>MLN111</h3>
+              <p>Philosophy of Marxism - Leninism</p>
+              <div class="tags"><span class="badge-tag">Philosophy</span></div>
+            </div>
+            <div class="course-action"><i class="fa-solid fa-clock"></i></div>
+          </div>
+
+          <div class="course-item course-item-coming">
+            <div class="course-icon bg-gradient-3">
+              <i class="fa-solid fa-shield-halved"></i>
+            </div>
+            <div class="course-info">
+              <h3>ITE302c</h3>
+              <p>Ethics in IT</p>
+              <div class="tags"><span class="badge-tag">Ethics</span></div>
+            </div>
+            <div class="course-action"><i class="fa-solid fa-clock"></i></div>
+          </div>
+
+          <div class="course-item course-item-coming">
+            <div class="course-icon bg-gradient-2">
+              <i class="fa-solid fa-cloud"></i>
+            </div>
+            <div class="course-info">
+              <h3>MSS301</h3>
+              <p>Microservices with Spring Cloud</p>
+              <div class="tags"><span class="badge-tag">Microservices</span> <span class="badge-tag">Spring Cloud</span>
+              </div>
+            </div>
+            <div class="course-action"><i class="fa-solid fa-clock"></i></div>
+          </div>
+
+          <div class="course-item course-item-coming">
+            <div class="course-icon bg-gradient-4">
+              <i class="fa-solid fa-mobile-screen-button"></i>
+            </div>
+            <div class="course-info">
+              <h3>PRM393</h3>
+              <p>Mobile Programming</p>
+              <div class="tags"><span class="badge-tag">Mobile</span></div>
+            </div>
+            <div class="course-action"><i class="fa-solid fa-clock"></i></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Kỳ IX -->
+      <div class="tab-pane fade" id="ky9" role="tabpanel" aria-labelledby="ky9-tab">
+        <div class="course-list">
+          <div class="course-item course-item-coming">
+            <div class="course-icon bg-gradient-1">
+              <i class="fa-solid fa-flag"></i>
+            </div>
+            <div class="course-info">
+              <h3>VNR202</h3>
+              <p>History of CPV</p>
+              <div class="tags"><span class="badge-tag">History</span></div>
+            </div>
+            <div class="course-action"><i class="fa-solid fa-clock"></i></div>
+          </div>
+
+          <div class="course-item course-item-coming">
+            <div class="course-icon bg-gradient-6">
+              <i class="fa-solid fa-users"></i>
+            </div>
+            <div class="course-info">
+              <h3>MLN131</h3>
+              <p>Scientific Socialism</p>
+              <div class="tags"><span class="badge-tag">Socialism</span></div>
+            </div>
+            <div class="course-action"><i class="fa-solid fa-clock"></i></div>
+          </div>
+
+          <div class="course-item course-item-coming">
+            <div class="course-icon bg-gradient-4">
+              <i class="fa-solid fa-graduation-cap"></i>
+            </div>
+            <div class="course-info">
+              <h3>SE_GRA_ELE</h3>
+              <p>Graduation Elective - Software Engineering</p>
+              <div class="tags"><span class="badge-tag">Graduation</span></div>
+            </div>
+            <div class="course-action"><i class="fa-solid fa-clock"></i></div>
+          </div>
+
+          <div class="course-item course-item-coming">
+            <div class="course-icon bg-gradient-3">
+              <i class="fa-solid fa-star"></i>
+            </div>
+            <div class="course-info">
+              <h3>HCM202</h3>
+              <p>HCM Ideology</p>
+              <div class="tags"><span class="badge-tag">Ideology</span></div>
+            </div>
+            <div class="course-action"><i class="fa-solid fa-clock"></i></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <div class="social-icons">
+      <a href="https://www.facebook.com/tien.thuong.674774" class="social-link" target="_blank"><i
+          class="fab fa-facebook-f"></i></a>
+      <a href="https://github.com/ThuongNT-ktpm" class="social-link" target="_blank"><i class="fab fa-github"></i></a>
+      <a href="mailto:" class="social-link" aria-label="Email"><i class="fas fa-envelope"></i></a>
+      <a href="https://www.tiktok.com/@tin.thng49" class="social-link" target="_blank"><i class="fab fa-tiktok"></i></a>
+    </div>
+    <p class="copyright">
+      © 2024 Nguyen Tien Thuong & Phan Nhat Cuong. Built with ❤️.
+    </p>
+  </footer>
+
+  <button id="back-to-top" type="button" aria-label="Lên đầu trang">
+    <i class="fa-solid fa-arrow-up"></i>
+  </button>
+
+  <div id="toast-root" class="toast-root" aria-live="polite"></div>
+
+  <div id="course-modal" class="course-modal" aria-hidden="true">
+    <div class="modal-card" role="dialog" aria-modal="true" aria-label="Chi tiết môn học">
+      <button id="course-modal-close" type="button" class="modal-close" aria-label="Đóng">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+      <div id="course-modal-body"></div>
+    </div>
+  </div>
+
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
+  <script src="js/hihi.js?v=2"></script>
+</body>
+
 </html>
