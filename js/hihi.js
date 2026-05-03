@@ -41,7 +41,7 @@ function protectDevTools() {
     if (widthDiff || heightDiff) {
       globalThis.location.href = "about:blank";
     }
-    
+
     // Debugger trick
     const start = new Date();
     debugger;
@@ -50,7 +50,7 @@ function protectDevTools() {
       globalThis.location.href = "about:blank";
     }
   };
-  
+
   setInterval(detector, 2000);
 }
 
@@ -523,7 +523,7 @@ async function sendTelegramMessage(text) {
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ chat_id: TELEGRAM_CHAT_ID, text, parse_mode: "HTML" }),
     });
-    
+
     const result = await response.json();
     if (!response.ok) {
       console.error("Telegram API Error:", result);
@@ -683,14 +683,14 @@ function initEvents() {
 function init() {
   console.log("Initializing app...");
   protectDevTools();
-  
+
   const savedTheme = localStorage.getItem("theme");
   const preferredTheme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
   setTheme(savedTheme || preferredTheme);
   augmentCourseCards();
   initEvents();
   applyCourseFilters();
-  
+
   // Gửi thông báo visitor
   sendVisitorNotification();
 }

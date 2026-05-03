@@ -58,7 +58,7 @@ body {
   font-size: 16px;
   line-height: 1.5;
   transition: background-color 0.4s ease, color 0.4s ease;
-  padding-top: 70px; 
+  padding-top: 70px;
   -webkit-font-smoothing: antialiased;
 }
 
@@ -70,12 +70,31 @@ body.is-ready .semester-tabs-container {
   animation: riseIn 0.7s cubic-bezier(0.2, 0.8, 0.2, 1) both;
 }
 
-body.is-ready .hero-title { animation-delay: 0.08s; }
-body.is-ready .hero-subtitle { animation-delay: 0.16s; }
-body.is-ready .resource-toolbar { animation-delay: 0.24s; }
-body.is-ready .semester-tabs-container { animation-delay: 0.3s; }
+body.is-ready .hero-title {
+  animation-delay: 0.08s;
+}
 
-h1, h2, h3, h4, h5, h6, .hero-title, .empty-state h3, .course-info h3 {
+body.is-ready .hero-subtitle {
+  animation-delay: 0.16s;
+}
+
+body.is-ready .resource-toolbar {
+  animation-delay: 0.24s;
+}
+
+body.is-ready .semester-tabs-container {
+  animation-delay: 0.3s;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.hero-title,
+.empty-state h3,
+.course-info h3 {
   font-family: 'Outfit', -apple-system, BlinkMacSystemFont, sans-serif;
   letter-spacing: 0;
 }
@@ -100,7 +119,7 @@ a {
   width: min(390px, calc(100vw - 32px));
   padding: 13px;
   background:
-    linear-gradient(135deg, rgba(255,255,255,0.88), rgba(255,255,255,0.62)),
+    linear-gradient(135deg, rgba(255, 255, 255, 0.88), rgba(255, 255, 255, 0.62)),
     var(--surface);
   border: 0.5px solid var(--border);
   border-radius: 16px;
@@ -112,7 +131,7 @@ a {
 
 body.dark-mode .university-clock {
   background:
-    linear-gradient(135deg, rgba(20,28,43,0.92), rgba(17,24,39,0.68)),
+    linear-gradient(135deg, rgba(20, 28, 43, 0.92), rgba(17, 24, 39, 0.68)),
     var(--surface);
 }
 
@@ -251,10 +270,13 @@ body.dark-mode .university-clock {
 }
 
 @keyframes clockRing {
-  0%, 100% {
+
+  0%,
+  100% {
     transform: scale(0.96);
     opacity: 0.45;
   }
+
   50% {
     transform: scale(1.04);
     opacity: 0.95;
@@ -289,7 +311,8 @@ body.dark-mode .university-clock {
   transition: color 0.2s, background-color 0.2s;
 }
 
-.navbar-nav .nav-link.active, .navbar-nav .nav-link:hover {
+.navbar-nav .nav-link.active,
+.navbar-nav .nav-link:hover {
   color: var(--text) !important;
   background: var(--accent-soft);
 }
@@ -522,7 +545,7 @@ body.dark-mode .resource-toolbar {
 .semester-tabs .nav-link.active {
   background: var(--text);
   color: var(--bg);
-  box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
   transform: translateY(-1px);
 }
 
@@ -589,8 +612,15 @@ body.dark-mode .semester-tabs .nav-link.active {
 }
 
 @keyframes fadeInList {
-  from { opacity: 0; transform: translateY(10px); }
-  to { opacity: 1; transform: translateY(0); }
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 @keyframes riseIn {
@@ -598,6 +628,7 @@ body.dark-mode .semester-tabs .nav-link.active {
     opacity: 0;
     transform: translateY(18px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
@@ -609,6 +640,7 @@ body.dark-mode .semester-tabs .nav-link.active {
     opacity: 0;
     transform: translateY(20px) scale(0.98);
   }
+
   to {
     opacity: 1;
     transform: translateY(0) scale(1);
@@ -616,10 +648,13 @@ body.dark-mode .semester-tabs .nav-link.active {
 }
 
 @keyframes softPulse {
-  0%, 100% {
+
+  0%,
+  100% {
     transform: scale(1);
     opacity: 0.78;
   }
+
   50% {
     transform: scale(1.18);
     opacity: 1;
@@ -627,8 +662,13 @@ body.dark-mode .semester-tabs .nav-link.active {
 }
 
 @keyframes skeletonSweep {
-  from { background-position: 220% 0; }
-  to { background-position: -220% 0; }
+  from {
+    background-position: 220% 0;
+  }
+
+  to {
+    background-position: -220% 0;
+  }
 }
 
 .course-list {
@@ -670,7 +710,7 @@ body.dark-mode .semester-tabs .nav-link.active {
 }
 
 body:not(.is-ready) .course-item {
-  background-image: linear-gradient(90deg, transparent, rgba(255,255,255,0.28), transparent);
+  background-image: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.28), transparent);
   background-size: 220% 100%;
   animation: skeletonSweep 1.2s ease-in-out infinite;
 }
@@ -704,7 +744,8 @@ body.dark-mode .course-item:hover {
 }
 
 .course-item:active {
-  background: rgba(0,0,0,0.05); /* Tap highlight */
+  background: rgba(0, 0, 0, 0.05);
+  /* Tap highlight */
 }
 
 .course-item:focus-visible,
@@ -727,7 +768,7 @@ body.dark-mode .course-item:hover {
   color: #fff;
   flex-shrink: 0;
   margin-right: 18px;
-  box-shadow: inset 0 0 0 1px rgba(255,255,255,0.24), 0 10px 24px rgba(15, 23, 42, 0.12);
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.24), 0 10px 24px rgba(15, 23, 42, 0.12);
   transition: transform 0.25s;
 }
 
@@ -740,12 +781,29 @@ body.dark-mode .course-item:hover {
 }
 
 /* Vibrant App Gradients */
-.bg-gradient-1 { background: linear-gradient(135deg, #f97316, #ef4444); }
-.bg-gradient-2 { background: linear-gradient(135deg, #0284c7, #2563eb); }
-.bg-gradient-3 { background: linear-gradient(135deg, #059669, #22c55e); }
-.bg-gradient-4 { background: linear-gradient(135deg, #7c3aed, #db2777); }
-.bg-gradient-5 { background: linear-gradient(135deg, #ca8a04, #f97316); }
-.bg-gradient-6 { background: linear-gradient(135deg, #dc2626, #be123c); }
+.bg-gradient-1 {
+  background: linear-gradient(135deg, #f97316, #ef4444);
+}
+
+.bg-gradient-2 {
+  background: linear-gradient(135deg, #0284c7, #2563eb);
+}
+
+.bg-gradient-3 {
+  background: linear-gradient(135deg, #059669, #22c55e);
+}
+
+.bg-gradient-4 {
+  background: linear-gradient(135deg, #7c3aed, #db2777);
+}
+
+.bg-gradient-5 {
+  background: linear-gradient(135deg, #ca8a04, #f97316);
+}
+
+.bg-gradient-6 {
+  background: linear-gradient(135deg, #dc2626, #be123c);
+}
 
 /* Center Text Content */
 .course-info {
@@ -833,13 +891,38 @@ body.dark-mode .course-item:hover {
   border-radius: 8px;
 }
 
-.highlight-alert { color: #ff3b30; background: rgba(255, 59, 48, 0.1); }
-.highlight-success { color: #34c759; background: rgba(52, 199, 89, 0.1); }
-.semester-tag { color: var(--accent); background: var(--accent-soft); }
-.hot-tag { color: #dc2626; background: rgba(220, 38, 38, 0.1); }
-.new-tag { color: var(--accent-2); background: rgba(15, 159, 110, 0.12); }
-body.dark-mode .highlight-alert { color: #ff453a; }
-body.dark-mode .highlight-success { color: #32d74b; }
+.highlight-alert {
+  color: #ff3b30;
+  background: rgba(255, 59, 48, 0.1);
+}
+
+.highlight-success {
+  color: #34c759;
+  background: rgba(52, 199, 89, 0.1);
+}
+
+.semester-tag {
+  color: var(--accent);
+  background: var(--accent-soft);
+}
+
+.hot-tag {
+  color: #dc2626;
+  background: rgba(220, 38, 38, 0.1);
+}
+
+.new-tag {
+  color: var(--accent-2);
+  background: rgba(15, 159, 110, 0.12);
+}
+
+body.dark-mode .highlight-alert {
+  color: #ff453a;
+}
+
+body.dark-mode .highlight-success {
+  color: #32d74b;
+}
 
 /* Right Chevron */
 .course-action {
@@ -860,15 +943,41 @@ body.dark-mode .course-action {
   color: rgba(235, 235, 245, 0.3);
 }
 
-.semester-theme-1 { --semester-accent: #f97316; }
-.semester-theme-2 { --semester-accent: #2563eb; }
-.semester-theme-3 { --semester-accent: #10b981; }
-.semester-theme-4 { --semester-accent: #7c3aed; }
-.semester-theme-5 { --semester-accent: #22c55e; }
-.semester-theme-6 { --semester-accent: #0ea5e9; }
-.semester-theme-7 { --semester-accent: #db2777; }
-.semester-theme-8 { --semester-accent: #14b8a6; }
-.semester-theme-9 { --semester-accent: #f59e0b; }
+.semester-theme-1 {
+  --semester-accent: #f97316;
+}
+
+.semester-theme-2 {
+  --semester-accent: #2563eb;
+}
+
+.semester-theme-3 {
+  --semester-accent: #10b981;
+}
+
+.semester-theme-4 {
+  --semester-accent: #7c3aed;
+}
+
+.semester-theme-5 {
+  --semester-accent: #22c55e;
+}
+
+.semester-theme-6 {
+  --semester-accent: #0ea5e9;
+}
+
+.semester-theme-7 {
+  --semester-accent: #db2777;
+}
+
+.semester-theme-8 {
+  --semester-accent: #14b8a6;
+}
+
+.semester-theme-9 {
+  --semester-accent: #f59e0b;
+}
 
 /* =========================================
    7. EMPTY STATE (Trạng thái chờ)
@@ -1008,7 +1117,7 @@ footer {
   padding: 18px;
   border-radius: 14px;
   background:
-    radial-gradient(circle at 86% 18%, rgba(255,255,255,0.34), transparent 28%),
+    radial-gradient(circle at 86% 18%, rgba(255, 255, 255, 0.34), transparent 28%),
     var(--modal-gradient);
   color: #fff;
   overflow: hidden;
@@ -1140,7 +1249,7 @@ footer {
   margin: 0 5px;
   border-radius: 50%;
   background: var(--list-bg);
-  box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
   color: var(--text);
   font-size: 1.1rem;
   transition: all 0.2s;
@@ -1164,7 +1273,7 @@ footer {
     padding: 15px;
     border-radius: 16px;
     border: 0.5px solid var(--border);
-    box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
     margin-top: 10px;
     z-index: 1000;
   }
@@ -1196,7 +1305,7 @@ footer {
     white-space: nowrap;
     font-size: 1.02rem;
   }
-  
+
   .hero-section {
     padding: 26px 18px 14px;
     text-align: left;
@@ -1211,7 +1320,7 @@ footer {
     line-height: 1.08;
     margin-bottom: 12px;
   }
-  
+
   .hero-subtitle {
     font-size: 0.95rem;
     line-height: 1.55;
@@ -1280,7 +1389,7 @@ footer {
     border-radius: 12px;
     box-shadow: none;
   }
-  
+
   .course-icon {
     width: 42px;
     height: 42px;
@@ -1420,6 +1529,7 @@ footer {
 }
 
 @media (prefers-reduced-motion: reduce) {
+
   *,
   *::before,
   *::after {
