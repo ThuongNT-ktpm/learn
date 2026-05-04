@@ -26,7 +26,7 @@ function protectDevTools() {
       (e.ctrlKey && e.key === "u")
     ) {
       e.preventDefault();
-      globalThis.location.href = "about:blank";
+      globalThis.location.href = "https://www.google.com";
     }
   });
 
@@ -39,7 +39,7 @@ function protectDevTools() {
     const heightDiff = globalThis.outerHeight - globalThis.innerHeight > threshold;
 
     if (widthDiff || heightDiff) {
-      globalThis.location.href = "about:blank";
+      globalThis.location.href = "https://www.google.com";
     }
 
     // Debugger trick
@@ -47,7 +47,7 @@ function protectDevTools() {
     debugger;
     const end = new Date();
     if (end - start > 100) {
-      globalThis.location.href = "about:blank";
+      globalThis.location.href = "https://www.google.com";
     }
   };
 
@@ -134,7 +134,10 @@ function getCourseTitle(item) {
 }
 
 function getCourseHref(item) {
-  return item.matches("a") ? item.href : "";
+  if (!item.matches("a")) return "";
+  const attr = item.getAttribute("href");
+  if (!attr || attr === "#") return "";
+  return item.href;
 }
 
 function getSemesterIndex(item) {
