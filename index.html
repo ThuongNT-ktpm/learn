@@ -17,7 +17,7 @@
     content="Kho lưu trữ tài liệu của Nguyễn Tiến Thương & Nhật Cường - Sinh viên Software Engineering." />
   <meta name="author" content="Nguyễn Tiến Thương & Nhật Cường" />
 
-  <link rel="stylesheet" href="css/style.css?v=9" />
+  <link rel="stylesheet" href="css/style.css?v=12" />
 </head>
 
 <body>
@@ -83,18 +83,73 @@
     <h1 class="hero-title">Tài liệu SE</h1>
 
     <div class="hero-services">
-      <div class="service-item">
-        <div class="service-icon bg-gradient-1"><i class="fa-solid fa-bolt"></i></div>
-        <span>Nhận up Locket gold, Buff like, view, share, comment Facebook, Youtube, Tiktok, Instagram, X...</span>
+      <div class="service-item" data-accent="orange">
+        <div class="service-card-header">
+          <div class="service-icon bg-gradient-1"><i class="fa-solid fa-bolt"></i></div>
+          <div class="service-title-group">
+            <h4 class="service-title">Buff & Boost</h4>
+            <span class="service-badge"><i class="fa-solid fa-fire"></i> Hot</span>
+          </div>
+        </div>
+        <p class="service-desc">Nhận up Locket gold, Buff like, view, share, comment Facebook, Youtube, Tiktok, Instagram, X...</p>
+        <button class="service-detail-toggle" onclick="this.closest('.service-item').classList.toggle('expanded')" aria-label="Xem chi tiết">
+          <span class="toggle-text-show"><i class="fa-solid fa-plus"></i> Xem chi tiết</span>
+          <span class="toggle-text-hide"><i class="fa-solid fa-minus"></i> Thu gọn</span>
+        </button>
+        <div class="service-detail-content">
+          <ul>
+            <li><i class="fa-solid fa-circle-check"></i> Up Locket Gold vĩnh viễn, uy tín</li>
+            <li><i class="fa-solid fa-circle-check"></i> Buff like, view, share, comment đa nền tảng</li>
+            <li><i class="fa-solid fa-circle-check"></i> Hỗ trợ Facebook, Youtube, Tiktok, Instagram, X</li>
+            <li><i class="fa-solid fa-circle-check"></i> Giá cả hợp lý, bảo hành</li>
+          </ul>
+        </div>
       </div>
-      <div class="service-item">
-        <div class="service-icon bg-gradient-2"><i class="fa-solid fa-graduation-cap"></i></div>
-        <span>Nhận dạy kèm các môn PRO192, PRJ301, WEB201c</span>
+
+      <div class="service-item" data-accent="blue">
+        <div class="service-card-header">
+          <div class="service-icon bg-gradient-2"><i class="fa-solid fa-graduation-cap"></i></div>
+          <div class="service-title-group">
+            <h4 class="service-title">Dạy kèm 1-1</h4>
+            <span class="service-badge badge-green"><i class="fa-solid fa-star"></i> Uy tín</span>
+          </div>
+        </div>
+        <p class="service-desc">Nhận dạy kèm các môn PRO192, PRJ301, WEB201c — linh hoạt thời gian, cam kết hiểu bài.</p>
+        <button class="service-detail-toggle" onclick="this.closest('.service-item').classList.toggle('expanded')" aria-label="Xem chi tiết">
+          <span class="toggle-text-show"><i class="fa-solid fa-plus"></i> Xem chi tiết</span>
+          <span class="toggle-text-hide"><i class="fa-solid fa-minus"></i> Thu gọn</span>
+        </button>
+        <div class="service-detail-content">
+          <ul>
+            <li><i class="fa-solid fa-circle-check"></i> Dạy 1-1 hoặc nhóm nhỏ, Thứ 6, 7, CN</li>
+            <li><i class="fa-solid fa-circle-check"></i> Hỗ trợ giải bài tập, ôn PE/FE</li>
+            <li><i class="fa-solid fa-circle-check"></i> Có kinh nghiệm, đã qua các môn điểm cao</li>
+            <li><i class="fa-solid fa-circle-check"></i> Cam kết hiểu bài, hỗ trợ sau buổi học</li>
+          </ul>
+        </div>
       </div>
-      <div class="service-item">
-        <div class="service-icon bg-gradient-4"><i class="fa-solid fa-code"></i></div>
-        <span>Bán source FE full ngành SE, source được update liên tục. (Học trên Azota nếu mua liên hệ trước 4-5
-          ngày)</span>
+
+      <div class="service-item" data-accent="purple">
+        <div class="service-card-header">
+          <div class="service-icon bg-gradient-4"><i class="fa-solid fa-code"></i></div>
+          <div class="service-title-group">
+            <h4 class="service-title">Source FE</h4>
+            <span class="service-badge badge-purple"><i class="fa-solid fa-gem"></i> Premium</span>
+          </div>
+        </div>
+        <p class="service-desc">Bán source FE full ngành SE, được update liên tục. Học trên Azota — liên hệ trước 3-4 ngày.</p>
+        <button class="service-detail-toggle" onclick="this.closest('.service-item').classList.toggle('expanded')" aria-label="Xem chi tiết">
+          <span class="toggle-text-show"><i class="fa-solid fa-plus"></i> Xem chi tiết</span>
+          <span class="toggle-text-hide"><i class="fa-solid fa-minus"></i> Thu gọn</span>
+        </button>
+        <div class="service-detail-content">
+          <ul>
+            <li><i class="fa-solid fa-circle-check"></i> Source code FE đầy đủ từ kỳ 1 đến kỳ 9</li>
+            <li><i class="fa-solid fa-circle-check"></i> Cập nhật liên tục theo đề thi mới nhất</li>
+            <li><i class="fa-solid fa-circle-check"></i> Hỗ trợ học trên Azota, liên hệ trước 3-4 ngày</li>
+            <li><i class="fa-solid fa-circle-check"></i> Bao gồm PE, FE, Quizlet, Assignment</li>
+          </ul>
+        </div>
       </div>
     </div>
 
